@@ -1,4 +1,5 @@
 \documentclass[mat1, tisk]{fmfdelo}
+\usepackage{amsmath}
 % \documentclass[fin1, tisk]{fmfdelo}
 % Če pobrišete možnost tisk, bodo povezave obarvane,
 % na začetku pa ne bo praznih strani po naslovu, …
@@ -73,15 +74,144 @@
 % vstavite svoje definicije ...
 % \newcommand{\...}{...}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ZAČETEK VSEBINE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-% \section{Uvod}
+\section{Uvod}
 % ...
+\section{Metrična dimenzija grafa}
 
+%motivacija neki izvirnega
+
+\subsection{Definicija}
+
+Metrična dimenzija grafa je najmanjše število vozlišč grafa, ki jih potrebujemo, da
+vsa vozlišča v grafu razlikujemo med sabo zgolj s pomočjo razdalj do izbranih vozlišč.
+V matematičnem jeziku to povemo takole:
+
+\begin{definicija}
+    Naj bo $G$ povezan graf in $W = \{ w_1, ... , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
+    Vektor $r_W(v) = (d(v, w_1), ..., d(v, w_k))$ imenujemo metrična predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
+\end{definicija}
+
+\begin{definicija}
+    Neprazna podmnožica $R \subset V(G)$ je rešljiva,
+    če $\forall u, v \in V(G): u \neq v \implies r_R(v) \neq r_R(u)$.
+\end{definicija}
+
+\begin{definicija}
+    Najmanjša rešljiva množica grafa $G$ se imenuje rešljiva baza. Njeno velikost imenujemo metrična dimenzija in jo označimo z $\beta(G).$ 
+\end{definicija}
+
+Poglejmo si nekaj lahkih osnovnih primerov.
+
+\begin{primer} \label{primer_2.4.}
+Graf poti dolžine $n$ označujmo z $P_n$. Vozlišča označimo z $v_1, v_2, ..., v_n$, kot 
+je prikazano na spodnji sliki. Izberimo podmnožico $W = {v_1} \subseteq V(G).$ 
+Metrične predstavitve vozlišč grafa $P_n$, glede na izbrano podmnožico vozlišč, so potem sledeče:
+\begin{align*}
+    r_W(v_1) = d(v_1, v_1) & = 0 \\
+    r_W(v_2) = d(v_2, v_1) & = 1 \\
+    & \dots \\
+    r_W(v_n) = d(v_n, v_1) & = n-1.
+\end{align*}
+
+Vidimo, da so metrične predstavitve vseh vozlišč med seboj različne.
+Sledi, da je $W$ rešljiva množica. Ker je njena velikost enaka $1$ in je to najmanjša možna neprazna 
+podmnožica vozlišč, je torej metrična dimenzija
+grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
+\end{primer}
+
+\begin{primer}\label{primer_2.5.}
+    Cikel dolžine $n$ označujmo z $C_n$. Vozlišča označimo z $v_1, v_2, ..., v_n$, kot 
+    je prikazano na spodnji sliki. Izberimo podmnožico $W = {v_1, v_2} \subseteq V(G).$ 
+    Metrične predstavitve vozlišč grafa $C_n$, glede na izbrano podmnožico vozlišč, so potem sledeče:
+    \begin{align*}
+        r_W(v_1) = (d(v_1, v_1), d(v_1, v_2)) & = (0, 1) \\
+        r_W(v_2) = (d(v_2, v_1), d(v_2, v_2)) & = (1, 0) \\
+        r_W(v_3) = (d(v_3, v_1), d(v_3, v_2)) & = (2, 1) \\
+        r_W(v_4) = (d(v_4, v_1), d(v_4, v_2)) & = (3, 2) \\
+        & \dots \\
+        r_W(v_{n-1}) = (d(v_{n-1}, v_1), d(v_{n-1}, v_2)) & = (2, 3) \\
+        r_W(v_n) = (d(v_n, v_1), d(v_n, v_2)) & = (1, 2)
+    \end{align*}
+    
+    Zopet vidimo, da so metrične predstavitve vseh vozlišč med seboj različne.
+    $W$  je torej rešljiva množica, njena velikost pa je enaka $2$. Metrična dimenzija
+    poljubno velikega cikla je enaka $\beta(C_n) = 2.$
+\end{primer}
+
+\subsection{Rešljiva množica}
+
+Nekaj osnovnih ugotovitev o rešljivih množicah grafa lahko razberemo iz zgornjih primerov.
+
+\begin{trditev}
+Za povezan graf $G$, je $V(G)$ rešljiva množica.
+\end{trditev}
+\begin{dokaz}
+Predpostavimo, da ima graf $G$ $n$ vozlišč. Označimo vozlišča grafa $G$ z $v_1, ..., v_n$.
+Za posamezno vozlišče bo metrična predstavitev sledeča:
+$$r_{V(G)}(v_k) = (d(v_k, v_1), ..., d(v_k, v_k), ... , d(v_k, v_n)) = (d(v_k, v_1), ..., 0 , ... , d(v_k, v_n)).$$
+Torej za vsako vozlišče $v_k$ bo $k$-ta komponenta metrične predstavitve enaka $0$. To je tudi edina komponenta v vektorju, 
+ki bo enaka $0$, saj za razdaljo med vozlišči velja
+$$d(v, w) = 0 \Leftrightarrow v = w.$$
+Sledi $\forall u, v \in V(G): u \neq v \implies r_{V(G)}(v) \neq r_{V(G)}(u)$, torej je $V(G)$ rešljiva množica.
+\end{dokaz}
+
+% a je sploh definirana razdalja na nepovezanem grafu?? s bi se dalo narest kakšno smiselno razširitev??
+%iz te trditve sledi, da metrična dimenzija vselej obstaja in je manjša ali enaka |V(G)|.
+
+\begin{trditev}
+    Rešljiva baza grafa $G$ ni enolično določena.
+\end{trditev}
+\begin{dokaz}
+    To hitro vidimo na primeru %\ref*{primer_2.4.}.
+    Za $W$ bi lahko vezli tudi vozlišče $v_2$ in prišli do enakega rezultata.
+\end{dokaz}
+
+V defnicijah 2.1. in 2.2. smo prepostavili, da imamo neprazno podmnožico vozlišč. Če bi vzeli prazno množico,
+bi bila definicija očitno nesmiselna. Iz trditve 2.6. lahko potem sklepamo, da metrična dimenzija za graf vselej 
+obstaja in lahko zapišemo naslednjo posledico:
+
+\begin{posledica}
+    Za povezan graf $G$ velja
+    $$1 \leq \beta(G) \leq |V(G)| - 1. $$
+\end{posledica}
+\begin{dokaz}
+    Iz definicije metrične dimenzije sledi $1 \leq \beta(G)$. Iz trditve 2.6. pa sledi $\beta(G) \leq |V(G)|.$
+    Predpostavimo $|V(G)| = n$ in $V(G) = \{ v_1, ... , v_n\}$. Vzemimo sedaj podmnožico $W = \{ v_1, ... , v_{n-1}\}.$
+    Metrične predstavitve vozlišč glede na $W$ so sledeče:
+
+    \begin{align*}
+        r_W(v_1) & = (0, d(v_1, v_2), ..., d(v_1, v_k), ... , d(v_1, v_{n-1})) \\
+        r_W(v_2) & = (d(v_2, v_1), 0, ..., d(v_2, v_k), ... , d(v_2, v_{n-1})) \\
+        & \dots \\
+        r_W(v_k) & = (d(v_k, v_1), d(v_k, v_2), ..., 0 , ... , d(v_k, v_{n-1})) \\
+        & \dots \\
+        r_W(v_{n-1}) & = (d(v_{n-1}, v_1), d(v_{n-1}, v_2), ... , d(v_{n-1}, v_k) , ..., 0) \\
+        r_W(v_n) & = (d(v_n, v_1), d(v_n, v_2), ...,  d(v_n, v_k), ... , d(v_n, v_{n-1})) \\
+    \end{align*}
+    Vidimo, da so vse metrične predstavitve med seboj različne, torej je $W$ rešljiva in $\beta(G) \leq n - 1.$ 
+
+
+
+
+\end{dokaz}
+
+%Konec koncev je vsega konec.%
+%Začetki so najtežji.%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Leksikografksi produkt grafov}
+\section{Metrična dimenzija leksikografskega produkta grafov}
 % \section{...}
 % ...
 
