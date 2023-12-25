@@ -145,7 +145,7 @@ grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
     poljubno velikega cikla je enaka $\beta(C_n) = 2.$
 \end{primer}
 
-\subsection{Rešljiva množica}
+\subsection{Lastnosti}
 
 Nekaj osnovnih ugotovitev o rešljivih množicah grafa lahko razberemo iz zgornjih primerov.
 
@@ -178,7 +178,7 @@ bi bila definicija očitno nesmiselna. Iz trditve 2.6. lahko potem sklepamo, da 
 obstaja in lahko zapišemo naslednjo posledico:
 
 \begin{posledica}
-    Za povezan graf $G$ velja
+    Za povezan graf $G$ velja 
     $$1 \leq \beta(G) \leq |V(G)| - 1. $$
 \end{posledica}
 \begin{dokaz}
@@ -196,18 +196,91 @@ obstaja in lahko zapišemo naslednjo posledico:
         r_W(v_n) & = (d(v_n, v_1), d(v_n, v_2), ...,  d(v_n, v_k), ... , d(v_n, v_{n-1})) \\
     \end{align*}
     Vidimo, da so vse metrične predstavitve med seboj različne, torej je $W$ rešljiva in $\beta(G) \leq n - 1.$ 
-
-
-
-
 \end{dokaz}
 
 %Konec koncev je vsega konec.%
 %Začetki so najtežji.%
 
+\subsubsection{Metrična dimenzija in premer grafa}
 
+Ni presenetljivo, da lahko najdemo povezavo med metrično dimenzijo in premerom grafa.
+Spomnimo se matematične definicije premera.
 
+\begin{definicija}
+    Premer grafa $G$ označujemo z ${\rm diam}(G)$ in je enak dolžini najdaljše najkrajše poti v grafu.
+    Torej $${\rm diam}(G) = \underset{v, u \in V(G)}{\max} d(u, v).$${{}}
+\end{definicija}
 
+\begin{trditev}
+    Naj bo $G$ povezan graf in $|V(G)| = n$. Potem velja naslednja povezava:
+    $$n \leq ({\rm diam}(G))^{\beta (G)} + \beta (G). $$
+\end{trditev}
+
+\begin{dokaz}
+    Naj bo $R$ rešljiva baza grafa $G$, torej $|R| = \beta(G).$ Zanima nas, največ koliko vozlišč
+    ima lahko tak graf $G$. Vozlišča iz množice $R$ bodo imela natanko eno komponento metrične predstavitve
+    enako nič, tako se bodo te razlikovale med sabo in vseh ostalih. 
+    Če pa vzamemo vozlišče $v \notin R$, pa velja sledeče:
+    $$\forall r_i \in R: 1 \leq d(v, r_i) \leq {\rm diam}(G).$$
+    
+    Vseh možnih različnih metričnih predstavitev za vozlišča izven rešljive množice $R$ 
+    je tako $({\rm diam}(G))^{\beta (G)}$
+    in lahko zapišemo:
+    $$n \leq ({\rm diam}(G))^{\beta (G)} + \beta (G).$$
+\end{dokaz}
+
+V resnici lahko red grafa z dano metrično dimenzijo in premerom še bolj omejimo.
+
+\begin{trditev}
+    Naj bo $G$ povezan graf in $|V(G)| = n$. Označimo $ \delta = {\rm diam}(G)$ in $\beta = \beta (G)$. 
+    Potem velja
+
+    $$n \leq \Bigl ( \Bigl \lfloor {\frac{2 \delta}{3}}\Bigr \rfloor + 1 \Bigr )^{\beta} + 
+    \beta \sum_{i = 1}^{\lceil D/3 \rceil} {(2i - 1)^{\beta - 1}}. $$
+\end{trditev}
+
+\begin{dokaz}
+    
+\end{dokaz}
+
+Ta zgornja meja postane še bolj natančna za posamezne družine grafov, vendar v tem delu,
+tega ne bomo obravnavali tako podrobno.
+
+\subsubsection{Dvojčki in mattrična dimenzija}
+Spomnimo se pojma soseščine vozlišča.
+
+\begin{definicija}
+    Naj bo $G$ povezan graf in $v \in V(G)$ vozlišče na grafu. Množico 
+    $$N(v) = \{u \in V(G) \, | \,vu \in E(G) \}$$ imenujemo soseščina vozlišča $v$.
+\end{definicija}
+
+Sedaj vpeljimo ekvivalenčno relacijo na vozliščih
+$$v \equiv u \Leftrightarrow N(v)\setminus \{u\} = N(u) \setminus \{v\}$$
+Če sta vozlišči v tej ekvivalenčni relaciji, pravimo, da sta dvojčka. 
+Ekvivalenčni razred vozlišča $v$ označimo z $v^{*}$, 
+množico vseh ekvivalenčnih razredov z $\tau (G)$, število vseh razredov pa naj bo označeno 
+z $|\tau(G)| = \iota(G).$
+
+\begin{lema}
+    Naj bosta $u, v \in v(G)$ dvojčka. Potem je 
+    $$\forall w \in V(G) \setminus \{u, v\} : d(u, w) = d(v, w).$$
+\end{lema}
+
+\begin{dokaz}
+    %napiši dokaz
+\end{dokaz}
+
+Iz tega sledi, da mora vsaka rešljiva množica vsebovati vsaj enega od dvojčkov.
+Zapišemo lahko naslednjo trditev:
+
+\begin{trditev}
+    Za povezan graf $G$ velja
+    $$\beta(G) \geq \sum_{v^{*} \in \tau(G)} (|v^{*}| - 1).$$
+\end{trditev}
+
+\begin{dokaz}
+    % napiši dokaz
+\end{dokaz}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Leksikografksi produkt grafov}
