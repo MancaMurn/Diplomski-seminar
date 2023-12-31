@@ -243,10 +243,10 @@ V resnici lahko red grafa z dano metrično dimenzijo in premerom še bolj omejim
     
 \end{dokaz}
 
-Ta zgornja meja postane še bolj natančna za posamezne družine grafov, vendar v tem delu,
+Ta zgornja meja postane še bolj natančna za posamezne družine grafov, vendar v tem delu
 tega ne bomo obravnavali tako podrobno.
 
-\subsubsection{Dvojčki in mattrična dimenzija}
+\subsubsection{Dvojčki in metrična dimenzija}
 Spomnimo se pojma soseščine vozlišča.
 
 \begin{definicija}
@@ -283,7 +283,38 @@ Zapišemo lahko naslednjo trditev:
 \end{dokaz}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Leksikografksi produkt grafov}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Leksikografski produkt grafov}
+
+
+
+\begin{definicija}
+    Leksikografski produkt $G[H]$ grafov $G$ in $H$ je definiran na množici vozlišč $V (G[H]) = V (G)\times V (H)$. Dve različni vozlišči $(u, v)$ in $(x, y)$ sta sosedni, kadar velja
+\begin{itemize}
+    \item $ux \in E(G)$ ali
+    \item $u = x$ in $vy \in E(H).$ 
+\end{itemize}
+\end{definicija}
+
+%kako izglda funkcija razdalje 
+
+\subsection{primer}
+
+%dodaj sliko primera
+
+\subsection{lastnosti}
+Nekaj osnovnih lastnosti leksikografskega produkta grafov:
+\begin{itemize}
+    \item NEKOMUTATIVNOST: v splošnem velja $G[H] \neq H[G].$
+    \item DISTRIBUTIVNOST: $(G_1 + G_2)[H] = G_1[H] + G_2[H],$ kjer $+$ označuje disjunktno unijo oz. vsoto grafov.
+    %definiraj vsoto grafov...
+    \item 
+\end{itemize}
+%nekomutativnost, distributivnost, identiteta za komplemente ...
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Metrična dimenzija leksikografskega produkta grafov}
 % \section{...}
 % ...
