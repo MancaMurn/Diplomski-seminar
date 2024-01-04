@@ -1,5 +1,6 @@
 \documentclass[mat1, tisk]{fmfdelo}
 \usepackage{amsmath}
+\usepackage{graphicx}
 % \documentclass[fin1, tisk]{fmfdelo}
 % Če pobrišete možnost tisk, bodo povezave obarvane,
 % na začetku pa ne bo praznih strani po naslovu, …
@@ -40,7 +41,7 @@
 \povzetek{...}
 
 % - povzetek v angleščini
-\abstract{...}
+\abstract{... }
 
 % - klasifikacijske oznake, ločene z vejicami
 %   Oznake, ki opisujejo področje dela, so dostopne na strani https://www.ams.org/msc/
@@ -82,7 +83,14 @@
 \begin{document}
 
 \section{Uvod}
-% ...
+V decembru leta 2010 sta v razmaku 17 dni nastala dva različna članka z enakim naslovom - 
+\textit{"The metric dimension of the lexicographic product of graphs"}. Avtorji obeh člankov bojda niso vedeli za delo drugega 
+in so se teme lotili na dva posvem različna načina. V tem diplomskem seminarju si bomo ogledali pojem metrične dimenzije grafa in 
+njene osnovne lastnosti, definirali leksikografski produkt grafov ter povzeli glavne rezultate o metrični dimenziji leksikografskega 
+produkta iz obeh člankov. Na koncu bomo skušali najti tudi povezavo med enim in drugim pristopom obravnave le te. 
+
+Za začetek pa ponovimo nekaj osnovnih definicij in oznak iz teorije grafov. 
+
 \section{Metrična dimenzija grafa}
 
 %motivacija neki izvirnega
@@ -124,6 +132,13 @@ Vidimo, da so metrične predstavitve vseh vozlišč med seboj različne.
 Sledi, da je $W$ rešljiva množica. Ker je njena velikost enaka $1$ in je to najmanjša možna neprazna 
 podmnožica vozlišč, je torej metrična dimenzija
 grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
+
+\begin{figure}[h]
+    \caption{Graf $P_5$}
+    \centering
+    \includegraphics[width=0.6\textwidth]{pot.jpg}      
+\end{figure}
+
 \end{primer}
 
 \begin{primer}\label{primer_2.5.}
@@ -143,7 +158,17 @@ grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
     Zopet vidimo, da so metrične predstavitve vseh vozlišč med seboj različne.
     $W$  je torej rešljiva množica, njena velikost pa je enaka $2$. Metrična dimenzija
     poljubno velikega cikla je enaka $\beta(C_n) = 2.$
+
+    \begin{figure}[h]
+        \caption{Graf $C_5$.}
+        \centering
+        \includegraphics[width=0.4\textwidth]{cikel.jpg}
+    \end{figure}
+%te sklice še popravi oznake
 \end{primer}
+
+
+
 
 \subsection{Lastnosti}
 
@@ -296,9 +321,19 @@ Zapišemo lahko naslednjo trditev:
 \end{itemize}
 \end{definicija}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{primer}
+Za lažjo predstavo si lahko ogledamo spodnjo skico, ki prikazuje leksikografski produkt
+dveh naključnih povzeanih grafov.
+\begin{figure}[h]
+    \caption{Leksikografski produkt poljubnih povezanih grafov $G$ in $H$.}
+    \centering
+    \includegraphics[width=0.5\textwidth]{leks_produkt_1.jpg}
+    \includegraphics[width=0.2\textwidth]{leks_produkt_2.jpg}        
+\end{figure}
 
-%dodaj sliko primera
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsection{lastnosti}
 Nekaj osnovnih lastnosti leksikografskega produkta grafov:
