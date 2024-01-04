@@ -296,8 +296,6 @@ Zapišemo lahko naslednjo trditev:
 \end{itemize}
 \end{definicija}
 
-%kako izglda funkcija razdalje 
-
 \subsection{primer}
 
 %dodaj sliko primera
@@ -305,17 +303,48 @@ Zapišemo lahko naslednjo trditev:
 \subsection{lastnosti}
 Nekaj osnovnih lastnosti leksikografskega produkta grafov:
 \begin{itemize}
+    \item POVEZANOST: Če je $G$ povezan graf, potem je $G[H]$ povezan. 
     \item NEKOMUTATIVNOST: v splošnem velja $G[H] \neq H[G].$
     \item DISTRIBUTIVNOST: $(G_1 + G_2)[H] = G_1[H] + G_2[H],$ kjer $+$ označuje disjunktno unijo oz. vsoto grafov.
     %definiraj vsoto grafov...
-    \item 
+    \item ENAKOST KOMPLEMENTOV: $\overline{G[H]} = \overline{G} [\overline{H}].$
+    % kako bi se v resnici pravilno reklo tej lastnosti...?
 \end{itemize}
-%nekomutativnost, distributivnost, identiteta za komplemente ...
 
+Poglejmo si kako izgleda razdalja med vozliščema v leksikografskem prodkutu grafov. 
+Označimo preslikavo  $a: V(G) \times V(G) \rightarrow \mathbb{N};$   
+$$ a(v, w) = \begin{cases}
+    0; & v = w \\
+    1; & v \sim w \\
+    2; & v \not\sim w
+\end{cases} 
+$$ 
+Opazujemo Leksikografski produkt povezanega grafa $G$ reda $n$, z množico vozlišč
+$V(G) = \{v_1, v_2, ... , v_n \}$ in grafa $H$ reda $m$, z množico vozlišč 
+$V(H) = \{u_1, u_2, ... , u_m \}$. Zaradi boljše preglednosti vpeljimo oznako $v_{ij} := (v_i, u_j) \in V(G[H]).$
+Sedaj lahko zapišemo
+$$
+d_{G[H]}(v_{ij}, v_{rs}) = \begin{cases}
+        d_G(v_i, v_r); & v_i \neq v_r \\
+        a_H(u_j, u_s); & \text{sicer}
+    \end{cases}
+$$ 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Metrična dimenzija leksikografskega produkta grafov}
+Decembra leta 2010 sta v razmaku 17 dni nastala dva različna članka na temo metrične dimenzije leksikografskega produkta grafov. 
+Avtorji so se lotili teme s povsem različnima pristopoma, v tem diplomskem seminarju pa bomo povzeli rezultate obeh in poskusili poiskati povezavo med njimi.  
+
+\subsection{Metrična dimenzija in komponente}
+
+
+\subsection{Metrična dimenzija, sosedska dimenzija in dvojčki}
+
+\subsection{Povezave in skupni rezultati??}
+%če mi to rata sem car.
+
+
 % \section{...}
 % ...
 
