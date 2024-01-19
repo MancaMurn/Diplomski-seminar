@@ -89,24 +89,67 @@ in so se teme lotili na dva posvem različna načina. V tem diplomskem seminarju
 njene osnovne lastnosti, definirali leksikografski produkt grafov ter povzeli glavne rezultate o metrični dimenziji leksikografskega 
 produkta iz obeh člankov. Na koncu bomo skušali najti tudi povezavo med enim in drugim pristopom obravnave le te. 
 
-Za začetek pa ponovimo nekaj osnovnih definicij in oznak iz teorije grafov. 
 
-% TODO
-% graf, vozlišča in povezave, sosednje vozlišče
-% komplement grafa
-% komponente grafa, povezan graf
-% razdalja med vozlišči d(v, w)
-% inducirani podgraf
-% poti, cilki, polni graf
+\subsection{Osnovni pojmi}
+Za začetek ponovimo nekaj osnovnih definicij in oznak iz teorije grafov, ki jih bomo potrebovali za razumevanje
+tega diplomskega seminarja. 
 
-% joint graph ??? kako je to definiran???
-% Združitev grafov G in H je graf G + H, za katerega velja  V(G + H) = V(G) \cup V(H) in 
-% E(G + H) = E(G) \cup E(H) \cup \{ uv | u \in G \and v \in H \} 
+\begin{definicija}
+    Graf $G$ je urejen par $(V(G), E(G)),$ kjer je $V(G)$ množica vozlišč in $E(G)$ podmnožica v $\binom{V(G)}{2},$ ki vsebuje povezave grafa.
+\end{definicija}
 
-% Dodaj en primer z K_1
+Če je $V(G)$ končna množica, je $G$ končen graf. Če je med dvema različnima vozliščema največ ena povezava in nobeno vozlišče ni 
+povezano samo s seboj, pravimo, da je graf enostaven. 
+Vozlišči $v, u \in G$ sta sosedni, če $uv \in E(G).$ Sosednost je ekvivalenčna relacija, zato sosedni vozlišči označimo $u \sim v.$ 
+Če $w, x \in V(G)$ nista sosedni pa pišemo $w \not \sim x.$
 
+\begin{definicija}
+    Komplement grafa $G$, je graf $\overline{G},$ za katerega velja $V(G) = V(\overline{G})$ in 
+    $$\forall u,v \in V(\overline{G}): uv E(\overline{G}) \Leftrightarrow uv \not \in E(G).$$
+\end{definicija}
 
+Sprehod v grafu $G$ je zaporedje vozlišč $v_1, v_2, ... v_k$ iz $V(G)$, tako da je $\forall i : v_i, v_{i+1} \in E(G).$ 
+Sprehod je enostaven, če vsebuje sama različna vozlišča.
+Graf je povezan, če med vsakima dvema različnima vozliščema obstaja sprehod. Na povezanem
+grafu lahko definiramo razdaljo med vozliščema.
 
+\begin{definicija}
+    Razdalja med dvema vozliščema $u, v \in V(G)$ je dolžina najkrajšega sprehoda in jo označujemo z $d(u, v).$ 
+\end{definicija}
+
+\begin{definicija}
+    Graf $H$ je podgraf grafa $G$ natanko tedaj, ko velja $V(H) \subseteq V(G)$ in $E(H) \subseteq E(H)$.
+\end{definicija}
+
+\begin{definicija}
+    Graf $H$ je induciran podgraf grafa $G$ natanko tedaj, ko velja $\forall u, v \in V(H) : uv \in E(G) \Rightarrow E(H)$.
+\end{definicija}
+
+\begin{definicija}
+Komponenta grafa je povezan podgraf, ki ni del nobenega večjega povezanega podgrafa. 
+\end{definicija}
+
+Povezan graf ima seveda samo eno komponento. Definirajmo še operacijo združitve grafov.
+
+\begin{definicija}
+    Združitev grafov $G$ in $H$, je graf $G + H$, za katerega velja $V(G + H) = V(G) \cup V(H)$ in 
+    $E(G + H)  = E(G) \cup E(H) \cup \{ uv \;  | \;  u \in V(G) \land v \in V(H) \}.$
+\end{definicija}
+% ali je ta definicija ok? In prevod... ne najdem sploh definicije za joint graphs.
+
+Poglejmo še nekaj primerov osnovnih razredov grafov:
+\begin{itemize}
+    \item Polni graf na $n$ vozliščih, ki ga označujemo z $K_n$, ima vse možne povezave.
+    \item Polni dvodelni graf, ki ga označujemo z $K_{n, m}$ ima množico 
+    vozlišč $V(K_{n,m}) = \{ v_1, v_2, ... , v_n , u_1, u_2, ... , u_m \}$
+    in povezave $E(K_{n, m}) = \{ v_i u_j \; | 1 \leq i \leq n \land 1 \leq j \leq m \}.$ 
+    \item Pot na $n$ vozliščih, ki jo označujemo z $P_n$, ima množico povezav $E(P_n) = \{ v_1 v_2 , v_2 v_3 , ... , v_{n-1} v_n\}.$
+    \item Cikel na $n$ vozliščih, dobimo tako, da grafu $P_n$ dodamo povezavo $n 1$.
+    \item Drevo je povezan graf, ki ne vsebuje nobenega cikla.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Metrična dimenzija grafa}
 
@@ -418,8 +461,6 @@ pristopoma, v tem diplomskem seminarju pa bomo povzeli rezultate obeh in
 poskusili poiskati povezavo med njimi. 
 
 \subsection{Metrična dimenzija in komponente}
-% Komponenta grafa je povezan podgraf, ki ni del nobenega večjega povezanega 
-% podgrafa. Povezan graf ima seveda samo eno komponento.
 Obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf in $H$ pojuben graf.
 Za potrebe tega podpoglavlja vpeljimo naslednje oznake:
 \begin{itemize}
@@ -435,7 +476,7 @@ Vzemimo sosednji vozlišči $a$, $b \in V(G)$. Vemo, da je vsako vozlišče iz $
 iz $H_i(a).$ 
 Inducirani podraf grafa $G[H]$, kjer vzamemo eno vozlišče iz množice $H(b)$ in vsa vozlišča iz
 $H_i(a)$ je izomorfen združenemu grafu $H_i + K_1.$
-S pomočjo rešljive baze tega združenega grafa bomo konstruirali rešljivos bazo $G[H]$.
+S pomočjo rešljive baze tega združenega grafa bomo konstruirali rešljivo bazo $G[H]$.
 
 
 \subsection{Metrična dimenzija, sosedska dimenzija in dvojčki}
