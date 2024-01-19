@@ -91,6 +91,8 @@ produkta iz obeh člankov. Na koncu bomo skušali najti tudi povezavo med enim i
 
 Za začetek pa ponovimo nekaj osnovnih definicij in oznak iz teorije grafov. 
 
+%TODO
+
 \section{Metrična dimenzija grafa}
 
 %motivacija neki izvirnega
@@ -155,8 +157,9 @@ grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
         r_W(v_n) = (d(v_n, v_1), d(v_n, v_2)) & = (1, 2)
     \end{align*}
     
-    Zopet vidimo, da so metrične predstavitve vseh vozlišč med seboj različne.
-    $W$  je torej rešljiva množica, njena velikost pa je enaka $2$. Metrična dimenzija
+    Zopet vidimo, da so metrične predstavitve vseh vozlišč med seboj različne. Če bi vzeli množico 
+    $W \setminus \{v_i\}$, bi imeli po dve vozlišči enako metrično prestavitev.
+    $W$  je torej najmanjša rešljiva množica, njena velikost pa je enaka $2$. Metrična dimenzija
     poljubno velikega cikla je enaka $\beta(C_n) = 2.$
 
     \begin{figure}[h]
@@ -167,8 +170,31 @@ grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
 %te sklice še popravi oznake
 \end{primer}
 
+\begin{primer}\label{primer_2.6.}
+    Polni graf z $n$ vozlišči označujmo s $K_n$. 
+    Vozlišča označimo z $v_1, v_2, ..., v_n$, 
+    kot je prikazano na spodnji sliki. Izberimo podmnožico 
+    $W = {v_1, v_2, ... , v_{n-1}} \subseteq V(G).$ 
+    Metrične predstavitve vozlišč grafa $K_n$, glede na izbrano podmnožico vozlišč, so potem sledeče:
+    \begin{align*}
+        r_W(v_1) = (d(v_1, v_1), d(v_1, v_2), ... , d(v_1, v_{n-1})) & = (0, 1, ... , 1) \\
+        r_W(v_2) = (d(v_2, v_1), d(v_2, v_2), ... , d(v_2, v_{n-1})) & = (1, 0, ... , 1) \\
+        & \dots \\
+        r_W(v_{n-1}) = (d(v_{n-1}, v_1), d(v_{n-1}, v_2), ... , d(v_{n-1}, v_{n-1})) & = (1, 1, ... , 0) \\
+        r_W(v_n) = (d(v_n, v_1), d(v_n, v_2), ... ,  d(v_n, v_{n-1})) & = (1, 1, ... , 1)
+    \end{align*}
+    
+    Zopet vidimo, da so metrične predstavitve vseh vozlišč med seboj različne. Vsako vozlišče ima na $i$ - ti
+    komponenti $0$ in povsod drugje $1$, z izjemo vozlišča $v_n$, ki ima povsod $1$. 
+    Če bi vzeli poljubno $W \setminus \{v_i\}$, 
+    bi imeli vozlišči $v_i$ in $v_n$ enaki metrični predstavitvi.
+    $W$  je torej najmanjša rešljiva množica, njena velikost pa je enaka $n-1$. Metrična dimenzija
+    poljubno velikega cikla je enaka $\beta(K_n) = n-1.$
+\end{primer}
 
-
+\begin{opomba}
+    Izkaže se $G = K_n \; \Leftrightarrow \; \beta(G) = n - 1.$
+\end{opomba}
 
 \subsection{Lastnosti}
 
@@ -292,7 +318,7 @@ z $|\tau(G)| = \iota(G).$
 \end{lema}
 
 \begin{dokaz}
-    %napiši dokaz
+    %TODO
 \end{dokaz}
 
 Iz tega sledi, da mora vsaka rešljiva množica vsebovati vsaj enega od dvojčkov.
@@ -304,8 +330,11 @@ Zapišemo lahko naslednjo trditev:
 \end{trditev}
 
 \begin{dokaz}
-    % napiši dokaz
+    %TODO
 \end{dokaz}
+
+\subsection{NP - poln problem}
+%TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -377,12 +406,8 @@ Obravnavamo leksikografske produkte $G[H]$, kjer je $G$ povezan graf in $H$ poju
 
 \subsection{Metrična dimenzija in komponente}
 Komponenta grafa je povezan podgraf, ki ni del nobenega večjega povezanega 
-podgrafa. 
-%povezani graf ima samo eno komponento. 
+podgrafa. Povezan graf ima seveda samo eno komponento.
 
-
-%In graph theory, a component of an undirected graph is a connected 
-%subgraph that is not part of any larger connected subgraph. 
 
 \subsection{Metrična dimenzija, sosedska dimenzija in dvojčki}
 
