@@ -91,7 +91,22 @@ produkta iz obeh člankov. Na koncu bomo skušali najti tudi povezavo med enim i
 
 Za začetek pa ponovimo nekaj osnovnih definicij in oznak iz teorije grafov. 
 
-%TODO
+% TODO
+% graf, vozlišča in povezave, sosednje vozlišče
+% komplement grafa
+% komponente grafa, povezan graf
+% razdalja med vozlišči d(v, w)
+% inducirani podgraf
+% poti, cilki, polni graf
+
+% joint graph ??? kako je to definiran???
+% Združitev grafov G in H je graf G + H, za katerega velja  V(G + H) = V(G) \cup V(H) in 
+% E(G + H) = E(G) \cup E(H) \cup \{ uv | u \in G \and v \in H \} 
+
+% Dodaj en primer z K_1
+
+
+
 
 \section{Metrična dimenzija grafa}
 
@@ -402,11 +417,25 @@ dimenzije leksikografskega produkta grafov. Avtorji so se lotili teme s povsem r
 pristopoma, v tem diplomskem seminarju pa bomo povzeli rezultate obeh in 
 poskusili poiskati povezavo med njimi. 
 
-Obravnavamo leksikografske produkte $G[H]$, kjer je $G$ povezan graf in $H$ pojuben graf. 
-
 \subsection{Metrična dimenzija in komponente}
-Komponenta grafa je povezan podgraf, ki ni del nobenega večjega povezanega 
-podgrafa. Povezan graf ima seveda samo eno komponento.
+% Komponenta grafa je povezan podgraf, ki ni del nobenega večjega povezanega 
+% podgrafa. Povezan graf ima seveda samo eno komponento.
+Obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf in $H$ pojuben graf.
+Za potrebe tega podpoglavlja vpeljimo naslednje oznake:
+\begin{itemize}
+    \item Za poljubno vozlišče $a \in G$ označimo množico vozlišč 
+    $H(a) = \{ (a, v) | v \in V(H) \}$.
+    \item Za poljubno vozlišče $b \in H$ označimo množico vozlišč 
+    $G(b) = \{ (v, b) | v \in V(G) \}$.
+    \item Če ima so $H_1, H_2, ..., H_k$ komponente grafa $H$, označimo 
+    $H_i(a) = \{ (a, v) | v \in V(H_i) \}$
+\end{itemize}
+
+Vzemimo sosednji vozlišči $a$, $b \in V(G)$. Vemo, da je vsako vozlišče iz $H(b)$ sosednje vsakemu
+iz $H_i(a).$ 
+Inducirani podraf grafa $G[H]$, kjer vzamemo eno vozlišče iz množice $H(b)$ in vsa vozlišča iz
+$H_i(a)$ je izomorfen združenemu grafu $H_i + K_1.$
+S pomočjo rešljive baze tega združenega grafa bomo konstruirali rešljivos bazo $G[H]$.
 
 
 \subsection{Metrična dimenzija, sosedska dimenzija in dvojčki}
