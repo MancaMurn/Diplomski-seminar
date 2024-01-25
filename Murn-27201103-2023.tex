@@ -75,6 +75,9 @@
 
 % vstavite svoje definicije ...
 % \newcommand{\...}{...}
+\newcommand{\1}{(1, 1, ..., 1)}
+\newcommand{\2}{(2, 2, ..., 2)}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -860,26 +863,127 @@ grafa $G$ in $H$, ki bosta zadoščala $\beta(G[H]) = c$.
 V tem podpoglavju bomo obravnavali metrično dimenzijo leksikografskega produkta $G[H]$ na 
 podlagi reda grafa $G$ in sosedske dimenzije grafa $H$. 
 
+\begin{lema}
+    Naj bo $G$ povezan graf reda $n$ in $H$ poljuben graf. Potem velja
+    $\beta(G[H]) \geq n \cdot \mu(H).$
+\end{lema}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{trditev}
+    Naj bo $G$ povezan graf reda $n$ in $H$ poljuben graf. Če obstajata dve sosedski bazi 
+    grafa $H$, $S_1$ in $S_2$, da nobeno vozlišče nima sosedske predstavitve z množico $S_1$ 
+    enako $\1$ in nobeno vozlišče nima sosedske predstavitve z množico $S_2$ 
+    enako $\2$, potem velja $$\beta(G[H]) = \beta(G[\overline{H}]) = n \cdot \mu(H) $$ 
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{trditev}
+    Naj bo $G$ povezan graf reda $n$ in $H$ poljuben graf. Če za vsako sosedsko bazo $S$
+    grafa $H$ obstajata vozlišči s sosedskima predstavitvama glede na $S$ enakima $\1$ in $\2$,
+    potem je 
+    $$\beta(G[H]) = \beta(G[\overline{H}]) = n \cdot (\mu(H) + 1) - \iota(G). $$
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{trditev}
+    Naj bo $G$ povezan graf reda $n$ in $H$ poljuben graf. Naj ima $H$ sledeči lastnosti:
+    \begin{enumerate}
+        \item za vsako sosedsko bazo obstaja vozlišče s sosedsko predstavitvijo $\1$,
+        \item obstaja sosedska baza $S$, da nobeno vozlišče nima sosedske predstavitve enake $\2.$
+    \end{enumerate} 
+    Potem velja $$\beta(G[H]) = n \cdot \mu(H) + a(G) - \iota_K(G). $$
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{trditev}
+    Naj bo $G$ povezan graf reda $n$ in $H$ poljuben graf. Naj ima $H$ sledeči lastnosti:
+    \begin{enumerate}
+        \item za vsako sosedsko bazo obstaja vozlišče s sosedsko predstavitvijo $\2$,
+        \item obstaja sosedska baza $S$, da nobeno vozlišče nima sosedske predstavitve enake $\1.$
+    \end{enumerate} 
+    Potem velja $$\beta(G[H]) = n \cdot \mu(H) + b(G) - \iota_N(G). $$
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{izrek}
+    Če je $G$ povezan graf reda $n$, ki nima dvojčkov, velja $\beta(G[H]) = n \cdot \mu(H).$
+\end{izrek}
+
+\begin{dokaz}
+    Če $G$ nima dvojčkov, je $\iota(G) = n$, $\iota_K(G) = a(G) = 0$ in $\iota_N(G) = b(G) = 0.$
+    Graf $H$ gotovo zadostuje pogojem v eni od zgornjih treh trditev, zato sledi  
+    $\beta(G[H]) = n \cdot \mu(H).$
+\end{dokaz}
+
+
+\begin{izrek}
+    Naj bo $G = P_n$, za $n\geq 4$ ali $G = C_n$ za $n \geq 5,$ ter naj bo $m\geq 3.$ Tedaj velja
+    $\beta(G[P_m]) = \beta(G[C_m]) = \beta(G[\overline{P_m}]) = \beta(G[\overline{C_m}]) = 
+    n \cdot  \Bigl \lfloor \frac{2\cdot m + 2}{5} \Bigr \rfloor $.
+
+    Velja še več, 
+    $$\beta(G[K_{m_1, ..., m_t}]) = \beta(G[\overline{K}_{m_1, ..., m_t}]) = 
+    \begin{cases}
+        n \cdot (m - r - 1); & r \neq t, \\
+        n \cdot (m - r); & r = t, 
+    \end{cases} $$
+    kjer so $m_1, ..., m_r \geq 2$,  $m_{r+1} = ... = m_t = 1$ in $\sum_{i= 1}^{t} m_i = m.$
+\end{izrek}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+\begin{izrek}
+    Naj bodo $n, m, m_1, ..., m_t$ števila, za katera velja:
+    \begin{itemize}
+        \item $n \geq 2$,
+        \item $m_1, ..., m_r \geq 2$,
+        \item $m_{r+1} = ... = m_t = 1$,
+        \item $\sum_{i= 1}^{t} m_i = m.$.
+    \end{itemize}
+    Potem velja
+    $$\beta(K_n[K_{m_1, ..., m_t}]) = 
+    \begin{cases}
+        n \cdot (m - r) - 1; & r \neq t, \\
+        n \cdot (m - r); & r = t, 
+    \end{cases} $$.
+\end{izrek}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Povezave in skupni rezultati??}
-%če mi to rata sem car.
-
-
-% \section{...}
-% ...
-
-% \section{Zaključek}
+\section{Zaključek}
 % ...
 
 \end{document}
