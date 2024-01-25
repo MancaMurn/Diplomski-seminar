@@ -87,10 +87,9 @@
 V decembru leta 2010 sta v razmaku 17 dni nastala dva različna članka z enakim naslovom - 
 \textit{"The metric dimension of the lexicographic product of graphs"}. Avtorji obeh člankov 
 bojda niso vedeli za delo drugega in so se teme lotili na dva posvem različna načina. 
-V tem diplomskem seminarju si bomo ogledali pojem metrične dimenzije grafa in njene osnovne 
-lastnosti, definirali leksikografski produkt grafov ter povzeli glavne rezultate o metrični 
-dimenziji leksikografskega produkta iz obeh člankov. Na koncu bomo skušali najti tudi 
-povezavo med enim in drugim pristopom obravnave le te. 
+V tem diplomskem seminarju si bomo ogledali pojema metrične in sosedske dimenzije grafa in njune 
+osnovne lastnosti, ter povezave med njima, definirali bomo leksikografski produkt grafov ter povzeli 
+glavne rezultate o metrični dimenziji leksikografskega produkta iz obeh člankov.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,6 +110,14 @@ za razumevanje tega diplomskega seminarja.
 s seboj, pravimo, da je graf enostaven. Vozlišči $v, u \in G$ sta sosedni, če $uv \in E(G).$ 
 Sosednost je ekvivalenčna relacija, zato sosedni vozlišči označimo $u \sim v.$ Če $w, x \in V(G)$ 
 nista sosedni pa pišemo $w \not \sim x.$
+
+\begin{definicija} \label{def:sosescina}
+    Naj bo $G$ povezan graf in $v \in V(G)$ vozlišče na grafu. Množico 
+    $$N(v) = \{u \in V(G) \, | \,vu \in E(G) \}$$ imenujemo soseščina vozlišča $v$.
+
+    Stopnja vozlišča je ${\rm deg}(u) = |N(u)|.$
+\end{definicija}
+
 
 \begin{definicija} \label{def:komplement}
     Komplement grafa $G$, je graf $\overline{G},$ za katerega velja $V(G) = V(\overline{G})$ in 
@@ -186,7 +193,7 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Metrična dimenzija grafa} \label{s:metricna_dim_grafa}
+\section{Metrična dimenzija grafa} \label{s:mdim}
 
 %motivacija neki izvirnega
 TODO - motivacija
@@ -195,7 +202,7 @@ TODO - motivacija
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Definicija} \label{ss:definicija_metricne_dim_grafa}
+\subsection{Definicija} \label{ss:def_mdim}
 
 Metrična dimenzija grafa je najmanjše število vozlišč grafa, ki jih potrebujemo, da
 vsa vozlišča v grafu razlikujemo med sabo zgolj s pomočjo razdalj do izbranih vozlišč.
@@ -217,8 +224,7 @@ V matematičnem jeziku to povemo takole:
     metrična dimenzija in jo označimo z $\beta(G).$ 
 \end{definicija}
 
-Poglejmo si nekaj lahkih osnovnih primerov.
-
+Za lažje razumevanje si poglejmo nekaj lahkih osnovnih primerov.
 
 \begin{primer} \label{pr:mdim_pot}
 Označimo vozlišča poti z $v_1, v_2, ..., v_n$, kot je prikazano na spodnji sliki \ref{fig:pot}. 
@@ -272,6 +278,7 @@ vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\bet
 
 \end{primer}
 
+
 \begin{primer}\label{pr:dim_poln}
     Označimo vozlišča polnega grafa z $v_1, v_2, ..., v_n$, kot je prikazano na sliki \ref{fig:polni}. 
     Izberimo podmnožico $W = {v_1, v_2, ... , v_{n-1}} \subseteq V(G).$ 
@@ -300,14 +307,75 @@ vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\bet
 
 \end{primer}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Sosedska dimenzija grafa}
+V nekaterih primerih si bomo pri obravnavanju metrične dimenzije pomagali tudi s pojmom 
+sosedske dimenzije. 
+
+Pri sosedski dimenziji zopet iščemo podmnožico vozlišč, s pomočjo katerih bomo lahko vsa 
+vozlišča v grafu med sabo razlikovali, vendar tokrat ne s pomočjo razdalje, pač pa s 
+pomočjo relacije sosednosti. 
+
+Označimo preslikavo  $a: V(G) \times V(G) \rightarrow \mathbb{N};$   
+\begin{equation} \label{eq:fja_a} 
+    a(v, w) = 
+    \begin{cases}
+        0; & v = w \\
+        1; & v \sim w \\
+        2; & v \not\sim w
+    \end{cases} 
+\end{equation} 
+Sedaj lahko zapišemo naslednje definicije.
+
+\begin{definicija}
+    Naj bo $G$ poljuben graf in $W = \{ w_1, ... , w_k  \} \subseteq V(G)$. Podmnožica
+    vozlišč. Vektorju $s_W(v) = (a(v, w_1), ..., a(v, w_k))$, kjer je $a$ rečemo 
+    sosedska predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
+\end{definicija}
+
+\begin{definicija}
+    Podmnožica vozlišč $S \subseteq V(G)$ je sosedsko rešljiva,
+    če $\forall u, v \in V(G): u\neq v \implies s_S(v) \neq s_S(u)$.
+\end{definicija}
+
+\begin{definicija}
+    Najmanjša sosedsko rešljiva množica grafa $G$ se imenuje sosedska baza. Njeno velikost 
+    imenujemo sosedska dimenzija in jo označimo z $\mu (G).$
+\end{definicija}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Lastnosti sosedske dimenzije}
+
+\begin{trditev} Naj bo $G$ povezan graf. Potem velja:
+    \begin{enumerate}
+        \item $\mu(G) \geq \beta(G)$.
+        \item ${\rm diam}(G) = 2 \Rightarrow \mu(G) = \beta(G).$
+        \item $\mu(G) = \mu(\overline{G}).$
+        \item $\mu(G) = 1 \Leftrightarrow G \in \{P_1, P_2, P_3, \overline{P_2}, \overline{P_3}\}.$
+        \item $\mu(G) = n - 1 \Leftrightarrow G \in \{K_n, \overline{K_n}\}.$
+    \end{enumerate}
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+% primeri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Lastnosti} \label{s:lastnosti_mdim}
+\subsection{Lastnosti metrične dimenzije} \label{s:lastnosti_mdim}
 
-Nekaj osnovnih ugotovitev o rešljivih množicah grafa lahko razberemo iz zgornjih primerov.
+Oglejmo si nekaj osnovnih ugotovitev o metrični dimenziji. Iz primera \ref{pr:mdim_pot}
+lahko hitro razberemo, da metrična baza ni nujno enolično določena. Za $W$ bi lahko 
+vezli tudi vozlišče $v_n$ in prišli do enakega rezultata. 
+Poiščimo sedaj najbolj splošno omejitev za metrično dimenzijo.
 
 \begin{trditev} \label{trd:cela_resljiva}
 Za povezan graf $G$, je $V(G)$ rešljiva množica. Še več, za poljubno vozlišče $v_i \in V(G)$
@@ -331,19 +399,24 @@ Ker je $V(G) = W_i \cup \{ v_i\},$ je tudi $V(G)$ rešljiva.
 \end{posledica}
 
 
-\begin{trditev} \label{trd:enolicnost_baze}
-    Metrična baza povezanega grafa $G$ ni nujno enolično določena.
-\end{trditev}
+\begin{lema} \label{lema:vozlisce_max_deg}
+    Naj bo $G$ povezan graf in $|V(G)| = n,$ ter naj bo $u \in V(G)$ vozlišče stopnje $n-1.$
+    Potem obstaja metrična baza v $G$, ki ne vsebuje vozlišča $u.$
+\end{lema}
 
 \begin{dokaz}
-    To hitro vidimo na primeru \ref{pr:mdim_pot}. Za $W$ bi lahko vezli tudi vozlišče 
-    $v_n$ in prišli do enakega rezultata.
+    TODO
 \end{dokaz}
 
+\begin{opomba} \label{op:zadostno_preverjanje}
+    Če za neko množico $S \subseteq V(G)$ preverjamo, če je rešljiva je dovolj preveriti metrične 
+    predstavitve vozlišč $v \in V(G) \setminus S.$ Vozlišča iz $S$ bodo imela natanko eno komponento 
+    vektorja enako nič. 
+\end{opomba}
+    
 
-% V defnicijah \ref{def:metricna_predstavitev} in \ref{def:resljiva_mn} smo prepostavili, da imamo 
-% neprazno podmnožico vozlišč. Če bi vzeli prazno množico, bi bila definicija metrične dimenzije nesmiselna. 
-
+V splošnem je iskanje metrične dimenzije grafa NP-poln problem. Za nekatere vrste grafov,
+pa lahko najdemo eksplicitne formule za njen izračun.
 
 \begin{trditev} \label{trd:mdim_polni_pot}
     Naj bo $G$ povezan graf in $|V(G)| = n \geq 2.$ Potem velja:
@@ -387,14 +460,7 @@ Ker je $V(G) = W_i \cup \{ v_i\},$ je tudi $V(G)$ rešljiva.
     TODO
 \end{dokaz}
 
-\begin{opomba} \label{op:zadostno_preverjanje}
-Če za neko množico $S \subseteq V(G)$ preverjamo, če je rešljiva je dovolj preveriti metrične 
-predstavitve vozlišč $v \in V(G) \setminus S.$ Vozlišča iz $S$ bodo imela natanko eno komponento 
-vektorja enako nič. 
-\end{opomba}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -448,16 +514,11 @@ tega ne bomo obravnavali tako podrobno.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsubsection{Dvojčki in metrična dimenzija} \label{ss:dvojcki_mdim}
 Spomnimo se pojma soseščine vozlišča.
 
-\begin{definicija} \label{def:sosescina}
-    Naj bo $G$ povezan graf in $v \in V(G)$ vozlišče na grafu. Množico 
-    $$N(v) = \{u \in V(G) \, | \,vu \in E(G) \}$$ imenujemo soseščina vozlišča $v$.
-\end{definicija}
 
 
 Sedaj vpeljimo ekvivalenčno relacijo na vozliščih
@@ -504,8 +565,47 @@ Zapišemo lahko naslednjo trditev:
     TODO
 \end{dokaz}
 
-\subsection{NP - poln problem}
-TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Metrična dimenzija in sosedska dimenzija}
+
+\begin{trditev}
+    Za poljuben graf $G$ velja
+    $$\beta(G + K_1) - 1 \leq \mu(G) \leq \beta(G + K_1).$$
+    Velja še več, 
+    $\mu(G) = \beta(G + K_1) \Leftrightarrow$ obstaja sosedska baza $S$ grafa $G$, 
+    da nobeno vozlišče ni sosednje vsem vozliščem iz $S$.
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{trditev}
+    Če je $n \geq 4,$ velja $\mu(C_n) = \mu(P_n) = \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor. $
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+
+\begin{trditev}
+    Naj bo $K_{m_1, ..., m_t}$ $t$-delni polni graf, ki ima $r$ delov vsaj $2$ vozlišči in ostali 
+    po eno vozlišče, ter naj velja $\sum_{i=1}^{t} m_i = m.$ Potem je
+    $$\mu(K_{m_1, ..., m_t}) = \beta(K_{m_1, ..., m_t}) = 
+    \begin{cases}
+        m - r - 1; & r \neq t \\
+        m - r; & r = t 
+    \end{cases}.$$
+\end{trditev}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -552,7 +652,7 @@ dveh naključnih povzeanih grafov.
 Nekaj osnovnih lastnosti leksikografskega produkta grafov:
 \begin{itemize}
     \item RED: $|V(G)| = n$ in $|V(H)| = m \; \Rightarrow |V(G[H])| = n \cdot m.$
-    \item POVEZANOST: Če je $G$ povezan graf, potem je $G[H]$ povezan. 
+    \item POVEZANOST: $G[H]$ je povezan $\Leftrightarrow$ $G$ povezan. 
     \item NEKOMUTATIVNOST: v splošnem velja $G[H] \neq H[G].$
     \item DISTRIBUTIVNOST: $(G_1 + G_2)[H] = G_1[H] + G_2[H],$ 
     \item ENAKOST KOMPLEMENTOV: $\overline{G[H]} = \overline{G} [\overline{H}].$
@@ -565,16 +665,7 @@ Nekaj osnovnih lastnosti leksikografskega produkta grafov:
 \end{itemize}
 
 Poglejmo si kako izgleda razdalja med vozliščema v leksikografskem prodkutu grafov. 
-Označimo preslikavo  $a: V(G) \times V(G) \rightarrow \mathbb{N};$   
-\begin{equation} \label{eq:fja_a} 
-    a(v, w) = 
-    \begin{cases}
-        0; & v = w \\
-        1; & v \sim w \\
-        2; & v \not\sim w
-    \end{cases} 
-\end{equation} 
-Opazujemo Leksikografski produkt povezanega grafa $G$ reda $n$, z množico vozlišč
+Opazujemo leksikografski produkt povezanega grafa $G$ reda $n$, z množico vozlišč
 $V(G) = \{v_1, v_2, ... , v_n \}$ in grafa $H$ reda $m$, z množico vozlišč 
 $V(H) = \{u_1, u_2, ... , u_m \}$. Zaradi boljše preglednosti vpeljimo oznako 
 $v_{ij} := (v_i, u_j) \in V(G[H]).$
@@ -586,6 +677,8 @@ Sedaj lahko zapišemo
         a_H(u_j, u_s); & \text{sicer}
     \end{cases}
 \end{equation} 
+
+Tu je preslikava $a$ definirana v enačbi \ref{eq:fja_a}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -764,8 +857,14 @@ grafa $G$ in $H$, ki bosta zadoščala $\beta(G[H]) = c$.
 
 
 \subsection{Metrična dimenzija, sosedska dimenzija in dvojčki}
-V tem podpoglavju bomo obravnavali metrično dimenzijo leksikografskega produkta $G[H]$ na podlagi
-reda grafa $G$ in sosedske dimenzije grafa $H$. 
+V tem podpoglavju bomo obravnavali metrično dimenzijo leksikografskega produkta $G[H]$ na 
+podlagi reda grafa $G$ in sosedske dimenzije grafa $H$. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 
