@@ -88,10 +88,10 @@
 
 \section{Uvod}
 V decembru leta 2010 sta v razmaku 17 dni nastala dva različna članka z enakim naslovom - 
-\textit{"The metric dimension of the lexicographic product of graphs"}. Avtorji obeh člankov 
-bojda niso vedeli za delo drugega in so se teme lotili na dva posvem različna načina. 
-V tem diplomskem seminarju si bomo ogledali pojema metrične in sosedske dimenzije grafa in njune 
-osnovne lastnosti, ter povezave med njima, definirali bomo leksikografski produkt grafov ter povzeli 
+\textit{''The metric dimension of the lexicographic product of graph''}. Avtorji obeh člankov 
+niso vedeli za delo drugega in so se teme lotili na dva posvem različna načina. V tem diplomskem 
+seminarju si bomo ogledali pojma metrične in sosedske dimenzije grafa in njune osnovne lastnosti, 
+ter povezave med njima, definirali bomo leksikografski produkt grafov ter povzeli 
 glavne rezultate o metrični dimenziji leksikografskega produkta iz obeh člankov.
 
 
@@ -110,12 +110,13 @@ za razumevanje tega diplomskega seminarja.
 
 Če je $V(G)$ končna množica, je $G$ končen graf. Število $|V(G)|$ imenujemo red grafa. 
 Če je med dvema različnima vozliščema največ ena povezava in nobeno vozlišče ni povezano samo 
-s seboj, pravimo, da je graf enostaven. Vozlišči $v, u \in G$ sta sosedni, če $uv \in E(G).$ 
+s seboj, pravimo, da je graf enostaven. Povezave med vozlišči $\{u, v\}$ bomo zaradi preglednosti
+pisali kar $uv$. Vozlišči $v, u \in G$ sta sosedni, če $uv \in E(G).$ 
 Sosednost je ekvivalenčna relacija, zato sosedni vozlišči označimo $u \sim v.$ Če $w, x \in V(G)$ 
 nista sosedni pa pišemo $w \not \sim x.$
 
 \begin{definicija} \label{def:sosescina}
-    Naj bo $G$ povezan graf in $v \in V(G)$ vozlišče na grafu. Množico 
+    Naj bo $G$ graf in $v \in V(G)$. Množico 
     $$N(v) = \{u \in V(G) \, | \,vu \in E(G) \}$$ imenujemo soseščina vozlišča $v$.
 
     Stopnja vozlišča je ${\rm deg}(u) = |N(u)|.$
@@ -144,8 +145,16 @@ Naslednja trditev o razdaji med vozlišči je očitna.
     $$ d(v, w) = 0 \Leftrightarrow v=w.$$
 \end{trditev} 
 
+\begin{definicija} \label{def:premer}
+    Premer povezanega grafa $G$ označujemo z ${\rm diam}(G)$ in je enak dolžini najdaljše najkrajše 
+    poti v grafu. Torej $${\rm diam}(G) = \underset{v, u \in V(G)}{\max} d(u, v).$$
+\end{definicija}
+
+Iz definicije očitno sledi, da za poljubni dve vozlišči iz povezanega grafa $u, v \in V(G)$
+velja $0 \leq d_G (u, v) \leq {\rm diam}(G).$
+
 \begin{definicija} \label{def:podgraf}
-    Graf $H$ je podgraf grafa $G$ natanko tedaj, ko velja $V(H) \subseteq V(G)$ in 
+    Graf $H$ je podgraf grafa $G$, če velja $V(H) \subseteq V(G)$ in 
     $E(H) \subseteq E(H)$.
 \end{definicija}
 
@@ -157,35 +166,35 @@ Naslednja trditev o razdaji med vozlišči je očitna.
 \begin{definicija} \label{def:komponenta}
 Komponenta grafa je povezan podgraf, ki ni del nobenega večjega povezanega podgrafa. 
 \end{definicija}
+%nerazumljiv komentar
 
 Povezan graf ima seveda samo eno komponento. Definirajmo še operacijo združitve grafov.
 
 \begin{definicija} \label{def:vsota}
-    Vsota grafov $G$ in $H$, je graf $G + H$, za katerega velja $V(G + H) = V(G) \cup V(H)$ 
+    Spoj grafov $G$ in $H$, je graf $G + H$, za katerega velja $V(G + H) = V(G) \cup V(H)$ 
     in $E(G + H)  = E(G) \cup E(H) \cup \{ uv \;  | \;  u \in V(G) \land v \in V(H) \}.$
 \end{definicija}
-%je to ime vredu? v angleščini je joint graphs...
 
 Poglejmo še nekaj primerov osnovnih razredov grafov:
 \begin{itemize} \label{primeri_grafov}
-    \item Prazen graf na $n$ vozliščih, ki ga označujemo z $N_n$, nima nobenih povezav. 
+    \item Graf brez povezav na $n$ vozliščih, ki ga označujemo z $N_n$, nima nobenih povezav. 
     \item Polni graf na $n$ vozliščih, ki ga označujemo z $K_n$, ima vse možne povezave.
     \item Polni dvodelni graf, ki ga označujemo z $K_{n, m}$ ima množico 
     vozlišč $V(K_{n,m}) = \{ v_1, v_2, ... , v_n , u_1, u_2, ... , u_m \}$
     in povezave $E(K_{n, m}) = \{ v_i u_j \; | \;  1 \leq i \leq n \; \land \; 1 \leq j \leq m \}.$ 
     \item Zvezda na $n$ vozliščih je poseben primer polnega dvodelnega grafa in jo označujemo
-    z $S_{(n-1)} = K_{1, (n-1)}$
+    z $S_{n-1} = K_{1, n-1}$
     \item Pot na $n$ vozliščih, ki jo označujemo z $P_n$, ima množico povezav 
     $E(P_n) = \{ v_1 v_2 , v_2 v_3 , ... , v_{n-1} v_n\}.$
-    \item Cikel na $n$ vozliščih, dobimo tako, da grafu $P_n$ dodamo povezavo $n 1$.
-    \item IME?? na $k+l$ vozliščih je enak združitvi poti in praznega grafa in ga označujemo s 
-    $F_{k,l} = N_k + P_l.$
+    \item Cikel na $n$ vozliščih, dobimo tako, da grafu $P_n$ dodamo povezavo $v_n v_1$.
+    \item Polni razcepljeni graf na $k+l$ vozliščih je enak spoju poti in praznega grafa in ga 
+    označujemo s $F_{k,l} = N_k + P_l.$
     %fan graph
     \item Drevo je povezan graf, ki ne vsebuje nobenega cikla.
 \end{itemize}
 
 \begin{opomba}
-    Očitno velja $P_1 = K_1 = N_1 = C_1.$ To je graf s samo enim vozliščem. Običajno ga bomo
+    Očitno velja $P_1 = K_1 = N_1.$ To je graf s samo enim vozliščem. Običajno ga bomo
     označevali s $K_1.$
 \end{opomba}
 
@@ -209,22 +218,23 @@ TODO - motivacija
 
 Metrična dimenzija grafa je najmanjše število vozlišč grafa, ki jih potrebujemo, da
 vsa vozlišča v grafu razlikujemo med sabo zgolj s pomočjo razdalj do izbranih vozlišč.
-V matematičnem jeziku to povemo takole:
+Formalno to povemo takole:
 
-\begin{definicija} \label{def:metricna_predstavitev}
-    Naj bo $G$ povezan graf in $W = \{ w_1, ... , w_k  \} \subseteq V(G)$ neprazna 
-    podmnožica vozlišč. Vektor $r_W(v) = (d(v, w_1), ..., d(v, w_k))$ imenujemo metrična 
-    predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
-\end{definicija}
+\begin{definicija} \label{def:metricna_dimenzija}
+    Naj bo $G$ povezan graf. 
+    \begin{itemize}
+        \item Naj bo $W = \{ w_1, ... , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
+        Vektor $r_W(v) = (d(v, w_1), ..., d(v, w_k))$ imenujemo metrična 
+        predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
+        \item Neprazna podmnožica $R \subseteq V(G)$ je rešljiva,
+        če $\forall u, v \in V(G): u \neq v \implies r_R(v) \neq r_R(u)$.
+        \item Najmanjša rešljiva množica grafa $G$ se imenuje metrična baza. Njeno velikost imenujemo 
+        metrična dimenzija in jo označimo z $\beta(G).$
+    \end{itemize}
+    
+    
 
-\begin{definicija} \label{def:resljiva_mn}
-    Neprazna podmnožica $R \subseteq V(G)$ je rešljiva,
-    če $\forall u, v \in V(G): u \neq v \implies r_R(v) \neq r_R(u)$.
-\end{definicija}
-
-\begin{definicija} \label{def:baza_dimenzija}
-    Najmanjša rešljiva množica grafa $G$ se imenuje metrična baza. Njeno velikost imenujemo 
-    metrična dimenzija in jo označimo z $\beta(G).$ 
+     
 \end{definicija}
 
 Za lažje razumevanje si poglejmo nekaj lahkih osnovnih primerov.
@@ -246,9 +256,9 @@ rešljiva množica. Ker je njena velikost enaka $1$ in je to najmanjša možna n
 vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\beta(P_n) = 1.$
 
 \begin{figure}[h]
-    \caption{Graf $P_5$}
     \centering
     \includegraphics[width=0.6\textwidth]{IMG_pot.jpg}
+    \caption{Graf $P_5$}
     \label{fig:pot}      
 \end{figure}
 
@@ -273,10 +283,10 @@ vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\bet
     dimenzija poljubno velikega cikla je enaka $\beta(C_n) = 2.$
 
     \begin{figure}[h]
-        \caption{Graf $C_5$.}
         \centering
         \includegraphics[width=0.4\textwidth]{IMG_cikel.jpg}
         \label{fig:cikel}
+        \caption{Graf $C_5$.}
     \end{figure}
 
 \end{primer}
@@ -302,10 +312,10 @@ vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\bet
     $\beta(K_n) = n-1.$
 
     \begin{figure}[h]
-        \caption{Graf $K_5$.}
         \centering
         \includegraphics[width=0.4\textwidth]{IMG_polni.jpg}
         \label{fig:polni}
+        \caption{Graf $K_5$.}
     \end{figure}
 
 \end{primer}
@@ -321,7 +331,7 @@ Pri sosedski dimenziji zopet iščemo podmnožico vozlišč, s pomočjo katerih 
 vozlišča v grafu med sabo razlikovali, vendar tokrat ne s pomočjo razdalje, pač pa s 
 pomočjo relacije sosednosti. 
 
-Označimo preslikavo  $a: V(G) \times V(G) \rightarrow \mathbb{N};$   
+Definirajmo preslikavo  $a: V(G) \times V(G) \rightarrow \mathbb{N}$ takole:  
 \begin{equation} \label{eq:fja_a} 
     a(v, w) = 
     \begin{cases}
@@ -330,22 +340,20 @@ Označimo preslikavo  $a: V(G) \times V(G) \rightarrow \mathbb{N};$
         2; & v \not\sim w
     \end{cases} 
 \end{equation} 
+
 Sedaj lahko zapišemo naslednje definicije.
 
 \begin{definicija}
-    Naj bo $G$ poljuben graf in $W = \{ w_1, ... , w_k  \} \subseteq V(G)$. Podmnožica
-    vozlišč. Vektorju $s_W(v) = (a(v, w_1), ..., a(v, w_k))$, kjer je $a$ rečemo 
-    sosedska predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
-\end{definicija}
-
-\begin{definicija}
-    Podmnožica vozlišč $S \subseteq V(G)$ je sosedsko rešljiva,
-    če $\forall u, v \in V(G): u\neq v \implies s_S(v) \neq s_S(u)$.
-\end{definicija}
-
-\begin{definicija}
-    Najmanjša sosedsko rešljiva množica grafa $G$ se imenuje sosedska baza. Njeno velikost 
-    imenujemo sosedska dimenzija in jo označimo z $\mu (G).$
+    Naj bo $G$ poljuben graf. 
+    \begin{itemize}
+        \item Naj bo $W = \{ w_1, ... , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
+        Vektor $s_W(v) = (a(v, w_1), ..., a(v, w_k))$ imenujemo 
+        sosedska predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
+        \item  Podmnožica vozlišč $S \subseteq V(G)$ je sosedsko rešljiva,
+        če $\forall u, v \in V(G): u\neq v \implies s_S(v) \neq s_S(u)$.
+        \item Najmanjša sosedsko rešljiva množica grafa $G$ se imenuje sosedska baza. 
+        Njeno velikost imenujemo sosedska dimenzija in jo označimo z $\mu (G).$
+    \end{itemize}    
 \end{definicija}
 
 
@@ -377,7 +385,7 @@ Sedaj lahko zapišemo naslednje definicije.
 
 Oglejmo si nekaj osnovnih ugotovitev o metrični dimenziji. Iz primera \ref{pr:mdim_pot}
 lahko hitro razberemo, da metrična baza ni nujno enolično določena. Za $W$ bi lahko 
-vezli tudi vozlišče $v_n$ in prišli do enakega rezultata. 
+vzeli tudi vozlišče $v_n$ in prišli do enakega rezultata. 
 Poiščimo sedaj najbolj splošno omejitev za metrično dimenzijo.
 
 \begin{trditev} \label{trd:cela_resljiva}
@@ -412,13 +420,13 @@ Ker je $V(G) = W_i \cup \{ v_i\},$ je tudi $V(G)$ rešljiva.
 \end{dokaz}
 
 \begin{opomba} \label{op:zadostno_preverjanje}
-    Če za neko množico $S \subseteq V(G)$ preverjamo, če je rešljiva je dovolj preveriti metrične 
+    Če za neko množico $S \subseteq V(G)$ preverjamo, če je rešljiva, je dovolj preveriti metrične 
     predstavitve vozlišč $v \in V(G) \setminus S.$ Vozlišča iz $S$ bodo imela natanko eno komponento 
     vektorja enako nič. 
 \end{opomba}
     
 
-V splošnem je iskanje metrične dimenzije grafa NP-poln problem. Za nekatere vrste grafov,
+V splošnem je iskanje metrične dimenzije grafa NP-poln problem. Za nekatere vrste grafov
 pa lahko najdemo eksplicitne formule za njen izračun.
 
 \begin{trditev} \label{trd:mdim_polni_pot}
@@ -453,9 +461,9 @@ pa lahko najdemo eksplicitne formule za njen izračun.
     Naj bo $n\geq 1$, potem velja:
     \begin{enumerate}
         \item $n \not \in \{ 3, 6\} \; \Rightarrow \; \beta(C_n + K_1) = 
-        \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$
+        \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$.
         \item $n \not \in \{ 1, 2, 3, 6\} \; \Rightarrow \; \beta(P_n + K_1) = 
-        \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$
+        \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$.
     \end{enumerate}
 \end{trditev}
 
@@ -470,15 +478,6 @@ pa lahko najdemo eksplicitne formule za njen izračun.
 \subsubsection{Metrična dimenzija in premer grafa} \label{ss:mdim_premer}
 
 Ni presenetljivo, da lahko najdemo povezavo med metrično dimenzijo in premerom grafa.
-Spomnimo se matematične definicije premera.
-
-\begin{definicija} \label{def:premer}
-    Premer grafa $G$ označujemo z ${\rm diam}(G)$ in je enak dolžini najdaljše najkrajše 
-    poti v grafu. Torej $${\rm diam}(G) = \underset{v, u \in V(G)}{\max} d(u, v).$$
-\end{definicija}
-
-Iz definicije očitno sledi, da za poljubni dve vozlišči iz povezanega grafa $u, v \in V(G)$
-velja $0 \leq d_G (u, v) \leq {\rm diam}(G).$
 
 \begin{trditev}\label{trd:groba_meja_mdim_premer}
     Naj bo $G$ povezan graf in $|V(G)| = n$. Potem velja naslednja povezava:
@@ -524,9 +523,9 @@ Spomnimo se pojma soseščine vozlišča.
 
 
 
-Sedaj vpeljimo ekvivalenčno relacijo na vozliščih
+Sedaj vpeljimo ekvivalenčno relacijo na vozliščih:
 \begin{equation}\label{eq:dvojcki}
-v \equiv u \Leftrightarrow N(v)\setminus \{u\} = N(u) \setminus \{v\}
+v \equiv u \Leftrightarrow N(v)\setminus \{u\} = N(u) \setminus \{v\}.
 \end{equation}
 Če sta vozlišči v tej ekvivalenčni relaciji, pravimo, da sta dvojčka. 
 Ekvivalenčni razred vozlišča $v$ označimo z $v^{*}$, 
@@ -553,7 +552,6 @@ z $|\tau(G)| = \iota(G).$
         $d(u, w_j) = m-1.$ Potem je po indukcijski predpostavki tudi $d(v, w_j) = m-1$ in 
         sledi $d(v, w_i) = m-1 + 1 = m.$
     \end{enumerate}
-    
 \end{dokaz}
 
 Iz tega sledi, da mora vsaka rešljiva množica vsebovati vsaj enega od dvojčkov.
