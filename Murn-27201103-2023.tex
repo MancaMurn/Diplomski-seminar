@@ -180,13 +180,13 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
     \item Graf brez povezav na $n$ vozliščih, ki ga označujemo z $N_n$, nima nobenih povezav. 
     \item Polni graf na $n$ vozliščih, ki ga označujemo s $K_n$, ima vse možne povezave.
     \item Polni dvodelni graf $K_{n, m}$ ima množico 
-    vozlišč $V(K_{n,m}) = \{ v_{1, 1}, v_{1, 2}, ... , v_{1, n},  v_{2, 1}, v_{2, 2}, ... , v_{2, m} \}$
-    in povezave $E(K_{n, m}) = \{ v_{1, i} v_{2, j} \; | \; \forall i, j \in \{ 1, 2, ... , m \} \}.$ 
-    \item  Polni $t$-delni graf $K_{m_1, ..., m_t}$, ima množico 
-    vozlišč $V(K_{m_1, ..., m_t}) = \{ v_{1, 1}, v_{1, 2}, ... , v_{1, m_1},  v_{2, 1}, v_{2, 2}, ... , v_{2, m_2}, ... ,
-     v_{t, 1}, v_{t, 2}, ... , v_{t, m_t}\}$
-    in povezave $E(K_{m_1, ..., m_t}) = \{  v_{a, i} v_{b, j} \; | \;  \forall a \neq b \land \; 
-    \forall i, j \in \{ 1, 2, ... , m \} \}.$
+    vozlišč $V(K_{n,m}) = \{ v_{1, 1}, v_{1, 2}, ... , v_{1, n},  \allowbreak v_{2, 1}, v_{2, 2}, ... , v_{2, m} \}$
+    in povezave $E(K_{n, m}) = \{ v_{1, i} v_{2, j} \; | \; i, j \in \{ 1, 2, ... , m \} \}.$ 
+    \item  Polni $t$-delni graf, označen s $K_{m_1, ..., m_t}$, ima množico 
+    vozlišč $V(K_{m_1, ..., m_t}) = \{ v_{1, 1}, v_{1, 2}, ... , v_{1, m_1}, 
+     v_{2, 1}, v_{2, 2}, ... , v_{2, m_2}, ... , v_{t, 1}, v_{t, 2}, ... , v_{t, m_t}\}$,
+    množica povezav pa je $E(K_{m_1, ..., m_t}) = \{  v_{a, i} v_{b, j} \; | \; a \neq b \land \; 
+    i, j \in \{ 1, 2, ... , m \} \}.$
     \item Zvezda na $n$ vozliščih je poseben primer polnega dvodelnega grafa in jo označujemo
     s $S_{n-1} = K_{1, n-1}$
     \item Pot na $n$ vozliščih, ki jo označujemo s $P_n$, ima množico povezav 
@@ -460,11 +460,11 @@ pa lahko najdemo eksplicitne formule za njen izračun.
 
 
 \begin{trditev} \label{trd:mdim_spojev}
-    Naj bo $n\geq 1$, potem velja:
+    Naj bo $n\geq 4$, potem velja:
     \begin{enumerate}
-        \item $n \not \in \{ 3, 6\} \; \Rightarrow \; \beta(C_n + K_1) = 
+        \item $n \neq 6 \; \Rightarrow \; \beta(C_n + K_1) = 
         \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$.
-        \item $n \not \in \{ 1, 2, 3, 6\} \; \Rightarrow \; \beta(P_n + K_1) = 
+        \item $n \neq 6 \; \; \Rightarrow \; \beta(P_n + K_1) = 
         \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$.
     \end{enumerate}
 \end{trditev}
@@ -472,6 +472,8 @@ pa lahko najdemo eksplicitne formule za njen izračun.
 \begin{dokaz}
     TODO
 \end{dokaz}
+%v opombo lahko  zapišem kaj se zgodi špri n = 1, 2, 3
+%zakaj za 6 ne velja?
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -564,7 +566,7 @@ Zapišemo lahko naslednjo trditev:
 
 \begin{dokaz}
     Vzemimo ekvivačenčni razred $v^{*} \in \tau(G)$.
-    Po lemi \ref{lema:dvojcki_razdalje} vidimo, da mora metrična baza vsebovati vse razen 
+    Po \ref{lema:dvojcki_razdalje} vidimo, da mora metrična baza vsebovati vse razen 
     največ enega elementa $v^{*}$. V nasprotnem primeru bi imeli tisti, ki niso vsebovani v rešljivi 
     bazi med seboj enake metrične predstavitve.
     To velja za vse ekvivalenčne razrede, neenačba sledi. 
@@ -575,7 +577,7 @@ Zapišemo lahko naslednjo trditev:
 
 \subsubsection{Metrična dimenzija in sosedska dimenzija} \label{ss:mdim_sdim}
 
-\begin{trditev}
+\begin{trditev} \label{trd:meja_sdim}
     Za poljuben graf $G$ velja
     $$\beta(G + K_1) - 1 \leq \mu(G) \leq \beta(G + K_1).$$
     Velja še več, 
@@ -588,18 +590,35 @@ Zapišemo lahko naslednjo trditev:
 \end{dokaz}
 
 
-\begin{trditev}
+\begin{trditev} \label{trd:sdim_pot_cikel}
     Če je $n \geq 4,$ velja $\mu(C_n) = \mu(P_n) = \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor. $
 \end{trditev}
 
 \begin{dokaz}
+    Opazimo, da velja ${\rm diam}(P_n + K_1) = {\rm diam}(C_n + K_1) = 2.$ Vozlišča so namreč sosednja, ali 
+    pa najdemo sprehod dolžine dva preko vozlišča, ki pripada $K_1$. Po \ref{trd:mdim_spojev} velja 
+    $$\beta(P_n + K_1) = \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor$$
+    Če se spomnimo še druge točke \ref{trd:lastnosti_sdim} sledi 
+    $$\mu(P_n + K_1) = \beta(P_n + K_1) = \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor.$$
+    Spojitev dodatnega vozlišča s potjo ne vpliva na sosednost vozlišč v grafu $P_n,$ zato velja
+    $$\mu(P_n) \leq \mu(P_n + K_1) \leq \mu(P_n) + K_1.$$
+    Na novo spojeno vozlišče, je sosednje z vsemi vozlišči v poti. Enakost z zgornjo mejo torej velja natanko
+    tedaj, ko ima eno od vozlišč v poti sosedsko predstavitev enako vektorju samih enic, sicer je 
+    $\mu(P_n + K_1) = \beta(P_n + K_1).$
+    
+    V poti je vsako vozlišče sosedno kvečjemu dvem ostalim, torej imamo lahko vektor samih enic samo,
+    če je $\mu(P_n) = 2$ - manj ni, saj je $n \geq 4$, glej \ref{trd:lastnosti_sdim}, točko 4.
+    Denimo, da je $s_W(u_i) = (1, 1).$ To pomeni, da je $W =\{ u_{i-1}, u_{u+1}\}.$  
     TODO
+    %LAHKO POKAŽEŠ DA FORMULA NVELJA ZA N=4,5,6 NA ROKE IN NATO Z INDUKCIJO OD 7 NAPREJ DA NE MORE BITI 
+    %VOZLIŠČA S PREDSTAVITVIJO (1,1)
+    % BI MORDA KORISTILA KAKA LEMA GLEDE DIMENZIJE PODGRAFA.?
 \end{dokaz}
 
 
 \begin{trditev}
-    Naj bo $K_{m_1, ..., m_t}$ $t$-delni polni graf, v katerem ima $r$ delov vsaj $2$ vozlišči in ostali 
-    po eno vozlišče, ter naj velja $\sum_{i=1}^{t} m_i = m.$ Potem je
+    Naj bo $K_{m_1, ..., m_t}$ $t$-delni polni graf, v katerem ima $r$ delov vsaj $2$ vozlišči, 
+    ter naj velja $\sum_{i=1}^{t} m_i = m.$ Potem je
     $$\mu(K_{m_1, ..., m_t}) = \beta(K_{m_1, ..., m_t}) = 
     \begin{cases}
         m - r - 1; & r \neq t \\
@@ -644,8 +663,8 @@ produkt dveh naključnih povezanih grafov.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{IMG_produkt.jpg}   
-    \label{fig:produkt}
     \caption{Leksikografski produkt povezanih grafov $G$ in $H$.}   
+    \label{fig:produkt}
 \end{figure}
 
 
@@ -704,12 +723,12 @@ dimenzijo grafa $H$} \label{ss:mdim_komp_prod}
 
 %TA PODNASLOV NI NAJBOLJ POSREČEN...
 V tem razdelku obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf in $H$ 
-poljuben graf. Naj bosta $a \in V(G)$ in $b \in H$ poljubni vozlišči. Za potrebe tega 
+poljuben graf. Naj bosta $a \in V(G)$ in $b \in V(H)$ poljubni vozlišči. Za potrebe tega 
 podpoglavlja vpeljimo naslednje oznake:
 \begin{itemize}
     \item $H(a) = \{ (a, v) \; | \; v \in V(H) \}$.
     \item $G(b) = \{ (v, b) \; | \; v \in V(G) \}$.
-    \item Če so $H_1, H_2, ..., H_k$ komponente grafa $H$, označimo 
+    \item Če so $H_1, H_2, \ldots , H_k$ komponente grafa $H$, označimo 
     $H_i(a) = \{ (a, v) \; | \; v \in V(H_i) \}$.
 \end{itemize}
 
