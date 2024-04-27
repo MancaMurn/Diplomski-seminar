@@ -77,8 +77,8 @@
 
 % vstavite svoje definicije ...
 % \newcommand{\...}{...}
-\newcommand{\1}{(1, 1, ..., 1)}
-\newcommand{\2}{(2, 2, ..., 2)}
+\newcommand{\1}{(1, 1, \ldots, 1)}
+\newcommand{\2}{(2, 2, \ldots, 2)}
 
 
 
@@ -130,7 +130,7 @@ nista sosedni pa pišemo $w \not \sim x.$
     $$\forall u,v \in V(\overline{G}): uv E(\overline{G}) \Leftrightarrow uv \not \in E(G).$$
 \end{definicija}
 
-Sprehod v grafu $G$ je zaporedje vozlišč $v_1, v_2, ... v_k$ iz $V(G)$, tako da je 
+Sprehod v grafu $G$ je zaporedje vozlišč $v_1, v_2, \ldots v_k$ iz $V(G)$, tako da je 
 $\forall i : v_i, v_{i+1} \in E(G).$ Sprehod je enostaven, če vsebuje sama različna vozlišča.
 Graf je povezan, če med vsakima dvema različnima vozliščema obstaja sprehod. Na povezanem
 grafu lahko definiramo razdaljo med vozliščema.
@@ -180,17 +180,17 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
     \item Graf brez povezav na $n$ vozliščih, ki ga označujemo z $N_n$, nima nobenih povezav. 
     \item Polni graf na $n$ vozliščih, ki ga označujemo s $K_n$, ima vse možne povezave.
     \item Polni dvodelni graf $K_{n, m}$ ima množico 
-    vozlišč $V(K_{n,m}) = \{ v_{1, 1}, v_{1, 2}, ... , v_{1, n},  \allowbreak v_{2, 1}, v_{2, 2}, ... , v_{2, m} \}$
-    in povezave $E(K_{n, m}) = \{ v_{1, i} v_{2, j} \; | \; i, j \in \{ 1, 2, ... , m \} \}.$ 
-    \item  Polni $t$-delni graf, označen s $K_{m_1, ..., m_t}$, ima množico 
-    vozlišč $V(K_{m_1, ..., m_t}) = \{ v_{1, 1}, v_{1, 2}, ... , v_{1, m_1}, 
-     v_{2, 1}, v_{2, 2}, ... , v_{2, m_2}, ... , v_{t, 1}, v_{t, 2}, ... , v_{t, m_t}\}$,
-    množica povezav pa je $E(K_{m_1, ..., m_t}) = \{  v_{a, i} v_{b, j} \; | \; a \neq b \land \; 
-    i, j \in \{ 1, 2, ... , m \} \}.$
+    vozlišč $V(K_{n,m}) = \{ v_{1, 1}, v_{1, 2}, \ldots , v_{1, n},  \allowbreak v_{2, 1}, v_{2, 2}, \ldots , v_{2, m} \}$
+    in povezave $E(K_{n, m}) = \{ v_{1, i} v_{2, j} \; | \; i, j \in \{ 1, 2, \ldots , m \} \}.$ 
+    \item  Polni $t$-delni graf, označen s $K_{m_1, \ldots, m_t}$, ima množico 
+    vozlišč $V(K_{m_1, \ldots, m_t}) = \{ v_{1, 1}, v_{1, 2}, \ldots , v_{1, m_1}, 
+     v_{2, 1}, v_{2, 2}, \ldots , v_{2, m_2}, \ldots , v_{t, 1}, v_{t, 2}, \ldots , v_{t, m_t}\}$,
+    množica povezav pa je $E(K_{m_1, \ldots, m_t}) = \{  v_{a, i} v_{b, j} \; | \; a \neq b \land \; 
+    i, j \in \{ 1, 2, \ldots , m \} \}.$
     \item Zvezda na $n$ vozliščih je poseben primer polnega dvodelnega grafa in jo označujemo
     s $S_{n-1} = K_{1, n-1}$
     \item Pot na $n$ vozliščih, ki jo označujemo s $P_n$, ima množico povezav 
-    $E(P_n) = \{ v_1 v_2 , v_2 v_3 , ... , v_{n-1} v_n\}.$
+    $E(P_n) = \{ v_1 v_2 , v_2 v_3 , \ldots , v_{n-1} v_n\}.$
     \item Cikel na $n$ vozliščih, dobimo tako, da grafu $P_n$ dodamo povezavo $v_n v_1$. Označimo ga s $C_n$.
     \item Polni razcepljeni graf na $k+l$ vozliščih je enak spoju poti in grafa brez povezav ter ga 
     označujemo s $F_{k,l} = N_k + P_l.$
@@ -228,8 +228,8 @@ Formalno to povemo takole:
 \begin{definicija} \label{def:mdim}
     Naj bo $G$ povezan graf. 
     \begin{itemize}
-        \item Naj bo $W = \{ w_1, ... , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
-        Vektor $r_W(v) = (d(v, w_1), ..., d(v, w_k))$ imenujemo metrična 
+        \item Naj bo $W = \{ w_1, \ldots , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
+        Vektor $r_W(v) = (d(v, w_1), \ldots, d(v, w_k))$ imenujemo metrična 
         predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
         \item Neprazna podmnožica $R \subseteq V(G)$ je rešljiva,
         če $\forall u, v \in V(G): u \neq v \implies r_R(v) \neq r_R(u)$.
@@ -241,7 +241,7 @@ Formalno to povemo takole:
 Za lažje razumevanje si poglejmo nekaj lahkih osnovnih primerov.
 
 \begin{primer} \label{pr:mdim_pot}
-Označimo vozlišča poti z $v_1, v_2, ..., v_n$, kot je prikazano na spodnji sliki \ref{fig:pot}. 
+Označimo vozlišča poti z $v_1, v_2, \ldots, v_n$, kot je prikazano na spodnji sliki \ref{fig:pot}. 
 Izberimo podmnožico $W = \{v_1\} \subseteq V(G).$ Metrične predstavitve vozlišč grafa $P_n$, 
 glede na $W$, so potem sledeče:
 \begin{align*}
@@ -267,7 +267,7 @@ vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\bet
 
 
 \begin{primer}\label{pr:mdim_cikel}
-    Označimo vozlišča cikla z $v_1, v_2, ..., v_n$, kot je prikazano na sliki \ref{fig:cikel}. 
+    Označimo vozlišča cikla z $v_1, v_2, \ldots, v_n$, kot je prikazano na sliki \ref{fig:cikel}. 
     Izberimo podmnožico $W = \{ v_1, v_2 \} \subseteq V(G).$ Metrične predstavitve vozlišč grafa $C_n$, 
     glede na $W$, so potem sledeče:
     \begin{align*}
@@ -294,15 +294,15 @@ vozlišč, je torej metrična dimenzija grafa poti poljubne dolžine enaka $\bet
 
 
 \begin{primer}\label{pr:mdim_poln}
-    Označimo vozlišča polnega grafa z $v_1, v_2, ..., v_n$, kot je prikazano na sliki \ref{fig:polni}. 
-    Izberimo podmnožico $W = \{ v_1, v_2, ... , v_{n-1} \} \subseteq V(G).$ 
+    Označimo vozlišča polnega grafa z $v_1, v_2, \ldots, v_n$, kot je prikazano na sliki \ref{fig:polni}. 
+    Izberimo podmnožico $W = \{ v_1, v_2, \ldots , v_{n-1} \} \subseteq V(G).$ 
     Metrične predstavitve vozlišč grafa $K_n$, glede na $W$, so potem sledeče:
     \begin{align*}
-        r_W(v_1) = (d(v_1, v_1), d(v_1, v_2), ... , d(v_1, v_{n-1})) & = (0, 1, ... , 1) \\
-        r_W(v_2) = (d(v_2, v_1), d(v_2, v_2), ... , d(v_2, v_{n-1})) & = (1, 0, ... , 1) \\
+        r_W(v_1) = (d(v_1, v_1), d(v_1, v_2), \ldots , d(v_1, v_{n-1})) & = (0, 1, \ldots , 1) \\
+        r_W(v_2) = (d(v_2, v_1), d(v_2, v_2), \ldots , d(v_2, v_{n-1})) & = (1, 0, \ldots , 1) \\
         & \dots \\
-        r_W(v_{n-1}) = (d(v_{n-1}, v_1), d(v_{n-1}, v_2), ... , d(v_{n-1}, v_{n-1})) & = (1, 1, ... , 0) \\
-        r_W(v_n) = (d(v_n, v_1), d(v_n, v_2), ... ,  d(v_n, v_{n-1})) & = (1, 1, ... , 1)
+        r_W(v_{n-1}) = (d(v_{n-1}, v_1), d(v_{n-1}, v_2), \ldots , d(v_{n-1}, v_{n-1})) & = (1, 1, \ldots , 0) \\
+        r_W(v_n) = (d(v_n, v_1), d(v_n, v_2), \ldots ,  d(v_n, v_{n-1})) & = (1, 1, \ldots , 1)
     \end{align*}
     
     Zopet vidimo, da so metrične predstavitve vseh vozlišč med seboj različne. Vsako 
@@ -347,8 +347,8 @@ Sedaj lahko zapišemo naslednjo definicijo.
 \begin{definicija} \label{def:sdim}
     Naj bo $G$ poljuben graf. 
     \begin{itemize}
-        \item Naj bo $W = \{ w_1, ... , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
-        Vektor $s_W(v) = (a(v, w_1), ..., a(v, w_k))$ imenujemo 
+        \item Naj bo $W = \{ w_1, \ldots , w_k  \} \subseteq V(G)$ neprazna podmnožica vozlišč. 
+        Vektor $s_W(v) = (a(v, w_1), \ldots, a(v, w_k))$ imenujemo 
         sosedska predstavitev vozlišča $v \in V(G)$ s podmnožico $W$.
         \item  Podmnožica vozlišč $S \subseteq V(G)$ je sosedsko rešljiva,
         če $\forall u, v \in V(G): u\neq v \implies s_S(v) \neq s_S(u)$.
@@ -396,9 +396,9 @@ je $W_i = V(G) \setminus \{ v_i\}$ rešljiva množica.
 \end{trditev}
 
 \begin{dokaz}
-Naj bo $G$ povezan in $|V(G)|= n$. Označimo vozlišča z $v_1, ..., v_n$.
+Naj bo $G$ povezan in $|V(G)|= n$. Označimo vozlišča z $v_1, \ldots, v_n$.
 Upoštevajoč trditev \ref{trd:nicelna_razdalja} hitro opazimo, da velja 
-$\forall j \in \{ 1, 2, ... , i - 1, i + 1, ... , n\}:$ vozlišče $v_j$ ima natanko $j$-to komponento 
+$\forall j \in \{ 1, 2, \ldots , i - 1, i + 1, \ldots , n\}:$ vozlišče $v_j$ ima natanko $j$-to komponento 
 metrične predstavitve glede na $W_i$ enako $0$. Vozlišče $v_i$ pa je edino, ki ima vse komponente 
 različne od $0.$ Sledi $\forall u, v \in V(G): u \neq v \Rightarrow r_{W_i}(v) \neq r_{W_i}(u)$, 
 torej je $W_i$ rešljiva množica.
@@ -446,9 +446,9 @@ pa lahko najdemo eksplicitne formule za njen izračun.
         \item $\Leftarrow$  TODO
         \item $\Leftarrow$
         Recimo, da imamo povezan graf $G$ na $n$ vozliščih z $\beta(G) = 1.$ Sledi, da obstaja neka 
-        rešljiva baza $W = \{ w \}.$ Označimo $V(G) = \{ v_1, v_2, ... , v_{n-1}, w\}.$ Sedaj mora 
+        rešljiva baza $W = \{ w \}.$ Označimo $V(G) = \{ v_1, v_2, \ldots , v_{n-1}, w\}.$ Sedaj mora 
         veljati, da so števila 
-        $$ d(v_1, w),  d(v_2, v_1), ..., d(v_{n-1}, w), d(w, w) $$
+        $$ d(v_1, w),  d(v_2, v_1), \ldots, d(v_{n-1}, w), d(w, w) $$
         paroma različna. Vemo $d(w, w) = 0$. Ker je $G$ povezan, mora obstajati vsaj eno vozlišče, 
         ki je sosednje z $w$. BSŠ naj bo $v_{n-1} \sim w$. Torej je $d(v_{n-1}, w) = 1$ in sledi, 
         da nobeno drugo vozlišče ni sosednje z $w$. Zopet zaradi povezanosti grafa obstaja vozlišče 
@@ -540,7 +540,7 @@ z $\iota(G) = |\tau(G)|.$
 \end{lema}
 
 \begin{dokaz}
-    Naj bosta $u$ in $v$ dvojčka v grafu $G$. Označimo $V(G) = \{u, v, w_1, ..., w_k\}$ 
+    Naj bosta $u$ in $v$ dvojčka v grafu $G$. Označimo $V(G) = \{u, v, w_1, \ldots, w_k\}$ 
     in $S = N(v)\setminus \{u\} = N(u) \setminus \{v\}$. Izberimo vozlišče 
     $w_i \in V(G) \setminus \{u, v\}.$
     \begin{enumerate}
@@ -617,9 +617,9 @@ Zapišemo lahko naslednjo trditev:
 
 
 \begin{trditev}
-    Naj bo $K_{m_1, ..., m_t}$ $t$-delni polni graf, v katerem ima $r$ delov vsaj $2$ vozlišči, 
+    Naj bo $K_{m_1, \ldots, m_t}$ $t$-delni polni graf, v katerem ima $r$ delov vsaj $2$ vozlišči, 
     ter naj velja $\sum_{i=1}^{t} m_i = m.$ Potem je
-    $$\mu(K_{m_1, ..., m_t}) = \beta(K_{m_1, ..., m_t}) = 
+    $$\mu(K_{m_1, \ldots, m_t}) = \beta(K_{m_1, \ldots, m_t}) = 
     \begin{cases}
         m - r - 1; & r \neq t \\
         m - r; & r = t 
@@ -680,7 +680,7 @@ Nekaj osnovnih lastnosti leksikografskega produkta grafov:
     \item NEKOMUTATIVNOST: v splošnem velja $G[H] \neq H[G].$
     \item DISTRIBUTIVNOST: $(G_1 + G_2)[H] = G_1[H] + G_2[H],$ 
     \item ENAKOST KOMPLEMENTOV: $\overline{G[H]} = \overline{G} [\overline{H}].$
-    % kako bi se v resnici pravilno reklo tej lastnosti...?
+    % kako bi se v resnici pravilno reklo tej lastnosti\ldots?
     \item PREMER: $$ {\rm diam}(G[H]) =  \begin{cases} 
         {\rm diam}(G); & |V(G)| \geq 2 \\
         {\rm diam}(G); & G = K_1
@@ -690,8 +690,8 @@ Nekaj osnovnih lastnosti leksikografskega produkta grafov:
 
 Poglejmo si, kako izgleda razdalja med vozliščema v leksikografskem produktu grafov. 
 Opazujemo leksikografski produkt povezanega grafa $G$ reda $n$, z množico vozlišč
-$V(G) = \{v_1, v_2, ... , v_n \}$ in grafa $H$ reda $m$, z množico vozlišč 
-$V(H) = \{u_1, u_2, ... , u_m \}$. Vpeljimo oznako 
+$V(G) = \{v_1, v_2, \ldots , v_n \}$ in grafa $H$ reda $m$, z množico vozlišč 
+$V(H) = \{u_1, u_2, \ldots , u_m \}$. Vpeljimo oznako 
 $v_{ij} := (v_i, u_j) \in V(G[H]).$
 Sedaj lahko zapišemo
 \begin{equation} \label{eq:razdalja_produkta}
@@ -721,7 +721,7 @@ Tu je preslikava $a$ definirana v \ref{eq:fja_a}.
 \subsection{Metrična dimenzija leksikografskega produkta glede na metrično 
 dimenzijo grafa $H$} \label{ss:mdim_komp_prod}
 
-%TA PODNASLOV NI NAJBOLJ POSREČEN...
+%TA PODNASLOV NI NAJBOLJ POSREČEN\ldots
 V tem razdelku obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf in $H$ 
 poljuben graf. Naj bosta $a \in V(G)$ in $b \in V(H)$ poljubni vozlišči. Za potrebe tega 
 podpoglavlja vpeljimo naslednje oznake:
@@ -761,9 +761,9 @@ TODO - leme
 %         \item $S \setminus \{ v \} \not = \emptyset$
         
 %         Definirajmo $B = V(Q + K_1) \setminus S$ in naj bo $r = |B|,$ torej 
-%         $B = \{b_1, b_2, ..., b_r\}$. Za $t \in \{1, 2, ... r\}$ definiramo množici 
+%         $B = \{b_1, b_2, \ldots, b_r\}$. Za $t \in \{1, 2, \ldots r\}$ definiramo množici 
 %         $S_t = S \cup \{b_t\}$ in $B_t = B \setminus \{b_t\}.$
-%         Če obstaja $t$, da $\forall u \in B_t : \; r_{S_t}(u) \not = (1, 1, ..., 1),$
+%         Če obstaja $t$, da $\forall u \in B_t : \; r_{S_t}(u) \not = (1, 1, \ldots, 1),$
 %         je lema dokazana. Sicer je $Q + K_1$ polen graf. Za poln graf pa lahko vzamemo
 %         rešljivo množico, ki vsebuje vse razen enega vozlišča, torej $S = V(Q).$
 %     \end{enumerate}
@@ -780,7 +780,7 @@ TODO - leme
 
 \begin{izrek} \label{izrek:omejitve_mdim_komp}
     Naj bo $G$ povezan graf reda $n \geq 2$ in $H$ poljuben graf reda $m \geq 2$, s $k \geq 1$ 
-    komponentami $H_1, H_2, ... , H_k$. Potem velja:
+    komponentami $H_1, H_2, \ldots , H_k$. Potem velja:
     $$
     n \cdot \Bigl ( \Bigl ( \sum_{p=1}^{k} \beta(H_p) \Bigr )  - 1  \Bigr ) 
     \leq \beta(G[H]) \leq 
@@ -811,11 +811,11 @@ TODO - leme
             \item Naj bo $G = P_n$, $n\geq 4$ in $H = N_k$, $k\geq 2$. 
             Zaradi izreka \ref{izrek:omejitve_mdim_komp} je dovolj pokazati 
             $\beta(G[H]) \leq n \cdot \Bigl ( \Bigl ( \sum_{p=1}^{k} \beta(H_p) \Bigr )  - 1  \Bigr ) = n 
-            \cdot (k - 1)$. Označimo $V(G) = \{p_1 , p_2, ..., p_n\}$, kjer so $\forall 1 \leq i < n : \; 
-            p_i p_{i+1} \in E(G)$, in $V(H) = \{ v_1, v_2, ..., v_k\}.$ Definirajmo množico 
+            \cdot (k - 1)$. Označimo $V(G) = \{p_1 , p_2, \ldots, p_n\}$, kjer so $\forall 1 \leq i < n : \; 
+            p_i p_{i+1} \in E(G)$, in $V(H) = \{ v_1, v_2, \ldots, v_k\}.$ Definirajmo množico 
             $W = V(G[H]) \setminus G(v_k).$ Velja $|W| = n \cdot (k-1).$ 
             Pokažimo, da je $W$ rešljiva množica. Opomba \ref{op:zadostno_preverjanje} nam pove, da je dovolj preveriti
-            vozlišča iz množice $G(v_k) = \{ (p_1, v_k), (p_2, v_k), ..., (p_n, v_k)\}$. Če se spomnimo formule
+            vozlišča iz množice $G(v_k) = \{ (p_1, v_k), (p_2, v_k), \ldots, (p_n, v_k)\}$. Če se spomnimo formule
             \ref{eq:razdalja_produkta}, vidimo, da velja:
             \begin{itemize}
                 \item $2 \leq d((p_i, v_k), (p_{j+1}, v_1)) \neq d((p_j, v_k), (p_{j + 1}, v_1)) = 1,$ 
@@ -827,15 +827,15 @@ TODO - leme
             Sledi, da so metrične predstavitve vozlišč iz $G(v_k)$ paroma različne in je $W$ rešljiva množica.
     
             \item Naj bo $G = S_{n-1}$ zvezda na $n$ vozliščih, $n\geq 4$, in $H$ graf s $k \geq 2$ komponentami
-            $H_1, H_2, ..., H_k,$ kjer je $H_i = P_8.$ Velja $\beta(P_8 + K_1) = 
+            $H_1, H_2, \ldots, H_k,$ kjer je $H_i = P_8.$ Velja $\beta(P_8 + K_1) = 
             \Bigl \lfloor \frac{2\cdot 8 + 2}{5} \Bigr \rfloor = 3. $ % DOKAZ??
             Zato je, podobno kot v prvi točki, dovolj pokazati  
             $$\beta(G[H]) \geq n \cdot \Bigl ( \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1 \Bigr ) + 
             (n-2) = 4kn - 2.$$ 
-            Naj bo $B$ rešljiva baza $P_8 + K_1$, potem obstaja $v \in V(P_8),$ da je $r_B(v) = (2, 2, 2).$
+            Naj bo $B$ metrična baza $P_8 + K_1$, potem obstaja $v \in V(P_8),$ da je $r_B(v) = (2, 2, 2).$
             %DOKAZ??
     
-            Recimo, da je $\beta(G[H]) < 4kn - 2,$ in naj bo $W$ rešljiva baza $G[H]$. 
+            Recimo, da je $\beta(G[H]) < 4kn - 2,$ in naj bo $W$ metrična baza $G[H]$. 
             
             TODO
     
@@ -899,7 +899,7 @@ podlagi reda grafa $G$ in sosedske dimenzije grafa $H$.
     Naj bo $G$ povezan graf reda $n$ in $H$ poljuben graf. Če obstajata dve sosedski bazi 
     grafa $H$, $S_1$ in $S_2$, da nobeno vozlišče nima sosedske predstavitve z množico $S_1$ 
     enako $\1$ in nobeno vozlišče nima sosedske predstavitve z množico $S_2$ 
-    enako $\2$, potem velja $$\beta(G[H]) = \beta(G[\overline{H}]) = n \cdot \mu(H) $$.
+    enako $\2$, potem velja $$\beta(G[H]) = \beta(G[\overline{H}]) = n \cdot \mu(H). $$
 \end{trditev}
 
 \begin{dokaz}
@@ -964,12 +964,12 @@ podlagi reda grafa $G$ in sosedske dimenzije grafa $H$.
     n \cdot  \Bigl \lfloor \frac{2\cdot m + 2}{5} \Bigr \rfloor $.
 
     Velja še več, 
-    $$\beta(G[K_{m_1, ..., m_t}]) = \beta(G[\overline{K}_{m_1, ..., m_t}]) = 
+    $$\beta(G[K_{m_1, \ldots, m_t}]) = \beta(G[\overline{K}_{m_1, \ldots, m_t}]) = 
     \begin{cases}
         n \cdot (m - r - 1); & r \neq t, \\
         n \cdot (m - r); & r = t, 
     \end{cases} $$
-    kjer so $m_1, ..., m_r \geq 2$,  $m_{r+1} = ... = m_t = 1$ in $\sum_{i= 1}^{t} m_i = m.$
+    kjer so $m_1, \ldots, m_r \geq 2$,  $m_{r+1} = \ldots = m_t = 1$ in $\sum_{i= 1}^{t} m_i = m.$
 \end{izrek}
 
 \begin{dokaz}
@@ -977,15 +977,15 @@ podlagi reda grafa $G$ in sosedske dimenzije grafa $H$.
 \end{dokaz}
 
 \begin{izrek}
-    Naj bodo $n, m, m_1, ..., m_t$ števila, za katera velja:
+    Naj bodo $n, m, m_1, \ldots, m_t$ števila, za katera velja:
     \begin{itemize}
         \item $n \geq 2$,
-        \item $m_1, ..., m_r \geq 2$,
-        \item $m_{r+1} = ... = m_t = 1$,
+        \item $m_1, \ldots, m_r \geq 2$,
+        \item $m_{r+1} = \ldots = m_t = 1$,
         \item $\sum_{i= 1}^{t} m_i = m.$.
     \end{itemize}
     Potem velja
-    $$\beta(K_n[K_{m_1, ..., m_t}]) = 
+    $$\beta(K_n[K_{m_1, \ldots, m_t}]) = 
     \begin{cases}
         n \cdot (m - r) - 1; & r \neq t, \\
         n \cdot (m - r); & r = t, 
@@ -1006,7 +1006,7 @@ podlagi reda grafa $G$ in sosedske dimenzije grafa $H$.
 
 
 \section{Zaključek}
-% ...
+%...
 \printbibliography
 
 \end{document}
