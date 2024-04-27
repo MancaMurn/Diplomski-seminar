@@ -2,8 +2,8 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{hyperref}
-%\usepackage[maxbibnames=99, articlein=false]{biblatex}
-%\addbibresource{literatura.bib}
+\usepackage[maxbibnames=99, articlein=false]{biblatex}
+\addbibresource{literatura.bib}
 % \documentclass[fin1, tisk]{fmfdelo}
 % Če pobrišete možnost tisk, bodo povezave obarvane,
 % na začetku pa ne bo praznih strani po naslovu, …
@@ -182,8 +182,8 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
     \item Polni dvodelni graf $K_{n, m}$ ima množico 
     vozlišč $V(K_{n,m}) = \{ v_{1, 1}, v_{1, 2}, \ldots , v_{1, n},  \allowbreak v_{2, 1}, v_{2, 2}, \ldots , v_{2, m} \}$
     in povezave $E(K_{n, m}) = \{ v_{1, i} v_{2, j} \; | \; i, j \in \{ 1, 2, \ldots , m \} \}.$ 
-    \item  Polni $t$-delni graf, označen s $K_{m_1, \ldots, m_t}$, ima množico 
-    vozlišč $V(K_{m_1, \ldots, m_t}) = \{ v_{1, 1}, v_{1, 2}, \ldots , v_{1, m_1}, 
+    \item  Polni $t$-delni graf, ki ga označujemo s $K_{m_1, \ldots, m_t}$, ima množico 
+    vozlišč enako $V(K_{m_1, \ldots, m_t}) = \{ v_{1, 1}, v_{1, 2}, \ldots , v_{1, m_1}, 
      v_{2, 1}, v_{2, 2}, \ldots , v_{2, m_2}, \ldots , v_{t, 1}, v_{t, 2}, \ldots , v_{t, m_t}\}$,
     množica povezav pa je $E(K_{m_1, \ldots, m_t}) = \{  v_{a, i} v_{b, j} \; | \; a \neq b \land \; 
     i, j \in \{ 1, 2, \ldots , m \} \}.$
@@ -702,7 +702,7 @@ Sedaj lahko zapišemo
     \end{cases}
 \end{equation} 
 
-Tu je preslikava $a$ definirana v \ref{eq:fja_a}.
+Tu je preslikava $a$ definirana v \eqref{eq:fja_a}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -816,7 +816,7 @@ TODO - leme
             $W = V(G[H]) \setminus G(v_k).$ Velja $|W| = n \cdot (k-1).$ 
             Pokažimo, da je $W$ rešljiva množica. Opomba \ref{op:zadostno_preverjanje} nam pove, da je dovolj preveriti
             vozlišča iz množice $G(v_k) = \{ (p_1, v_k), (p_2, v_k), \ldots, (p_n, v_k)\}$. Če se spomnimo formule
-            \ref{eq:razdalja_produkta}, vidimo, da velja:
+            \eqref{eq:razdalja_produkta}, vidimo, da velja:
             \begin{itemize}
                 \item $2 \leq d((p_i, v_k), (p_{j+1}, v_1)) \neq d((p_j, v_k), (p_{j + 1}, v_1)) = 1,$ 
                 za $ 1 \leq i \leq j < n $.
