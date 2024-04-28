@@ -189,9 +189,10 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
     i, j \in \{ 1, 2, \ldots , m \} \}.$
     \item Zvezda na $n$ vozliščih je poseben primer polnega dvodelnega grafa in jo označujemo
     s $S_{n-1} = K_{1, n-1}$
-    \item Pot na $n$ vozliščih, ki jo označujemo s $P_n$, ima množico povezav 
+    \item Pot na $n$ vozliščih, kjer je $n \geq 2$, ki jo označujemo s $P_n$, ima množico povezav 
     $E(P_n) = \{ v_1 v_2 , v_2 v_3 , \ldots , v_{n-1} v_n\}.$
-    \item Cikel na $n$ vozliščih, dobimo tako, da grafu $P_n$ dodamo povezavo $v_n v_1$. Označimo ga s $C_n$.
+    \item Cikel na $n$ vozliščih, kjer je $n \geq 3$, dobimo tako, da grafu $P_n$ dodamo povezavo $v_n v_1$. 
+    Označimo ga s $C_n$.
     \item Polni razcepljeni graf na $k+l$ vozliščih je enak spoju poti in grafa brez povezav ter ga 
     označujemo s $F_{k,l} = N_k + P_l.$
     %fan graph
@@ -199,7 +200,7 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
 \end{itemize}
 
 \begin{opomba}
-    Očitno velja $P_1 = K_1 = N_1.$ To je graf s samo enim vozliščem. Običajno ga bomo
+    Očitno velja $K_1 = N_1.$ To je graf s samo enim vozliščem. Običajno ga bomo
     označevali s $K_1.$
 \end{opomba}
 
@@ -529,6 +530,16 @@ pa lahko najdemo eksplicitne formule za njen izračun.
 \begin{dokaz}
     TODO
 \end{dokaz}
+
+|\begin{opomba}
+    Za manjše $n$ velja:
+    \begin{itemize}
+        \item $C_3 + K_1 = K_4 \Rightarrow \beta(C_3 + K_1) = 3.$
+        \item $P_2 + K_1 = C_3 \Rightarrow \beta(P_2 + K_1) = 2.$
+        \item $\beta(P_3 + K_1) = 2.$
+    \end{itemize}
+    
+\end{opomba}
 %v opombo lahko  zapišem kaj se zgodi špri n = 1, 2, 3
 %zakaj za 6 ne velja?
 
@@ -740,7 +751,7 @@ Nekaj osnovnih lastnosti leksikografskega produkta grafov:
     % kako bi se v resnici pravilno reklo tej lastnosti\ldots?
     \item PREMER: $$ {\rm diam}(G[H]) =  \begin{cases} 
         {\rm diam}(G); & |V(G)| \geq 2 \\
-        {\rm diam}(G); & G = K_1
+        {\rm diam}(H); & G = K_1
         \end{cases}$$
 
 \end{itemize}
@@ -769,7 +780,7 @@ Tu je preslikava $a$ definirana v \eqref{eq:fja_a}.
 
 
 \section{Metrična dimenzija leksikografskega produkta grafov}\label{s:mdim_prod}
- 
+% ali lahko namesto 'leksikografskega produkta grafov' pišem kar G[H]?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
