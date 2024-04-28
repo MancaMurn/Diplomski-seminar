@@ -212,8 +212,7 @@ Poglejmo še nekaj primerov osnovnih razredov grafov:
 
 \section{Metrična dimenzija grafa} \label{s:mdim}
 
-%motivacija neki izvirnega
-TODO - motivacija
+motivacija TODO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -402,30 +401,66 @@ $\forall j \in \{ 1, 2, \ldots , i - 1, i + 1, \ldots , n\}:$ vozlišče $v_j$ i
 metrične predstavitve glede na $W_i$ enako $0$. Vozlišče $v_i$ pa je edino, ki ima vse komponente 
 različne od $0.$ Sledi $\forall u, v \in V(G): u \neq v \Rightarrow r_{W_i}(v) \neq r_{W_i}(u)$, 
 torej je $W_i$ rešljiva množica.
-Ker je $V(G) = W_i \cup \{ v_i\},$ je tudi $V(G)$ rešljiva.
+Če rešljivi množici dodamo še kako vozlišče, je tudi slednja očitno rešljiva. Torej je tudi 
+$V(G) = W_i \cup \{ v_i\}$  rešljiva.
 \end{dokaz}
 
+Metrična baza povezanega grafa torej vselej obstaja.
 
 \begin{posledica} \label{po:groba_omejitev_mdim}
     Za povezan graf $G$ velja 
     $$1 \leq \beta(G) \leq |V(G)| - 1. $$
 \end{posledica}
 
-
-\begin{lema} \label{lema:vozlisce_max_deg}
-    Naj bo $G$ povezan graf in $|V(G)| = n,$ ter naj bo $u \in V(G)$ vozlišče stopnje $n-1.$
-    Potem obstaja metrična baza v $G$, ki ne vsebuje vozlišča $u.$
-\end{lema}
-
-\begin{dokaz}
-    TODO
-\end{dokaz}
-
 \begin{opomba} \label{op:zadostno_preverjanje}
     Če za neko množico $S \subseteq V(G)$ preverjamo, če je rešljiva, je dovolj preveriti metrične 
     predstavitve vozlišč $v \in V(G) \setminus S.$ Vozlišča iz $S$ bodo imela natanko eno komponento 
     vektorja enako nič. 
 \end{opomba}
+
+\begin{lema} \label{lema:vozlisce_max_deg_1}
+    Naj bo $G$ povezan graf in $|V(G)| = n,$ ter naj bodo $u_1, \ldots, u_k \in V(G)$ vozlišča stopnje $n-1.$
+    Potem metrična baza v $G$ vsebuje vsaj $k-1$ vozlišč stopnje $n-1.$
+\end{lema}
+
+\begin{dokaz}
+    Denimo, da je $R$ metrična baza povezanega grafa $G$, ki vsebuje manj kot $k-1$ vozlišč stopnje $n-1$. 
+    Potem imajo vozlišča stopnje $n-1$, ki niso vsebovana v $R$, metrično predstavitev glede na $R$ enako 
+    $\1$ in sledi, da $R$ ne more biti metrična baza. 
+\end{dokaz}
+
+\begin{lema} \label{lema:vozlisce_max_deg_2}
+    Naj bo $G$ povezan graf in $|V(G)| = n,$ ter naj bo $u \in V(G)$ vozlišče stopnje $n-1.$
+    Potem obstaja metrična baza v $G$, ki ne vsebuje vozlišča $u.$
+\end{lema}
+
+\begin{dokaz}
+    Naj bo $G$ povezan graf reda $n$, $u$ vozlišče stopnje $n-1$ in $R$ metrična baza.
+    \begin{enumerate}
+        \item Če $u \notin R$ smo končali.
+        \item Denimo, da $u \in R.$ Želimo si $u$ zamenjati z nekim drugim vozliščem grafa. 
+         Označimo $R = \{v_1, v_2, \ldots, v_k, u\}$ in $V(G) = R \cup \{v_{k+1}, v_{k+3}, \ldots, v_n \}.$
+         Velja:
+         \begin{align*}
+            r_R(v_{k+1}) & = (d(v_{k+1}, v_1), d(v_{k+1}, v_2), \ldots, 1) \\
+            r_R(v_{k+2}) & = (d(v_{k+2}, v_1),  d(v_{k+2}, v_2), \ldots, 1) \\
+            & \dots \\
+            r_R(v_n)  & = (d(v_n, v_1), d(v_n, v_2), \ldots, 1).
+        \end{align*}
+        Vidimo, da se morajo metrične predstavitve vozlišč, ki niso vsebovana v $R$, razlikovati v prvih $k$
+        komponentah. 
+        
+        Denimo, da obstaja vozlišče, ki ima metrično predstavitev enako $ \1.$ Po definiciji je tako največ eno in 
+        BŠS naj bo to $v_{k+1}$.
+        Vzemimo $R' = (R \setminus \{u\} ) \cup  \{v_{k+1}\}$.
+        Metrične predstavitve vozlišč $v_{k+2}, \ldots v_n$ glede na $R'$ se še vedno razlikujejo v prvih $k$ komponentah,
+        $u$ pa je edino voszlišče z metrično predstavitvijo $\1.$ $R'$ je torej metrična baza.
+
+        Če nobeno vozlišče nima metrične predstavitve glede na $R$ enako $\1,$ lahko $u$ zamenjamo s poljubnim drugim
+        vozliščem, ki še ni vsebovano v $R$. 
+    \end{enumerate}
+\end{dokaz}
+
     
 
 V splošnem je iskanje metrične dimenzije grafa NP-poln problem. Za nekatere vrste grafov
@@ -440,10 +475,32 @@ pa lahko najdemo eksplicitne formule za njen izračun.
 \end{trditev}
 
 \begin{dokaz}
-    Implikacijo v desno stran za obe točki smo že pokazali v primerih \ref{pr:mdim_pot} in 
+    Implikacijo v desno stran za obe točki smo že pokazali v \ref{pr:mdim_pot} in 
     \ref{pr:mdim_poln}.
     \begin{enumerate}
-        \item $\Leftarrow$  TODO
+        \item $\Leftarrow$ 
+        Recimo, da imamo povezan graf $G$ na $n$ vozliščih z $\beta(G) = n - 1.$ Označimo metrično bazo
+        z $W = \{v_1, v_2, \ldots, v_{n-1}\}$ in $V(G) = W \cup \{v_n\}$. 
+        
+        Če odstranimo poljubno vozlišče $v_i$ iz množice $W$, se metrične predstavitve vozlišč ne razlikujejo
+        več - če bi se, potem $W$ ni bila metrična baza. Vemo, da se metrična predstavitev vozlišča, ki 
+        je vsebovano v $W' = W \setminus \{v_i \}$ še vedno razlikuje od vseh ostalih. Sledi $r_{W'}(v_i) = r_{W'}(v_n)$.
+        Ker smo vzeli poljubno vozlišče iz množice $W$, torej velja $$r_{W'}(v_1) = r_{W'}(v_2) = \ldots = r_{W'}(v_n).$$
+        Označimo $deg(v_n) = k, 1 \leq k \leq n-1$. Metrične predstavitve vseh vozlišč glede na $W$ so potem sledeče:
+        \begin{align*}
+            r_W(v_1) & = (0, 1, \ldots 1, d(v_n, v_{k+1}), \ldots,d(v_n, v_{n-1})) \\
+            r_W(v_2) & = (1, 0, \ldots 1, d(v_n, v_{k+1}), \ldots,d(v_n, v_{n-1}))\\
+            & \dots \\
+            r_W(v_k)  & = (1, 1, \ldots 0, d(v_n, v_{k+1}), \ldots,d(v_n, v_{n-1}))\\
+            r_W(v_{k+1}) & = (1, 1, \ldots 1, 0, \ldots,d(v_n, v_{n-1})) \\
+            & \dots \\
+            r_W(v_{n - 1}) & = (1, 1, \ldots 1, d(v_n, v_{k+1}), \ldots, 0) \\
+            r_W(v_n)  & = (1, 1, \ldots 1, d(v_n, v_{k+1}), \ldots,d(v_n, v_{n-1})).
+        \end{align*}
+        Ker je $G$ povezan, mora obstajati vsaj eno vozlišče $v_i,$ da velja $d(v_i, v_{k+1}) = 1.$ Potem sledi
+        $$d(v_1, v_{k+1}) = d(v_2, v_{k+1}) = \ldots d(v_k, v_{k+1}) = d(v_{k+2}, v_{k+1}) = \ldots d(v_n, v_{k+1}) = 1.$$
+        Podobno velja za $v_{k+2}, v_{k+3}, \ldots, v_{n-1}.$ Sledi, da so vsa vozlišča stopnje $n-1$ in $G = K_n.$
+        
         \item $\Leftarrow$
         Recimo, da imamo povezan graf $G$ na $n$ vozliščih z $\beta(G) = 1.$ Sledi, da obstaja neka 
         rešljiva baza $W = \{ w \}.$ Označimo $V(G) = \{ v_1, v_2, \ldots , v_{n-1}, w\}.$ Sedaj mora 
