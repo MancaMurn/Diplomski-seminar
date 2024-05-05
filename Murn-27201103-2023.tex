@@ -2,8 +2,10 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage[maxbibnames=99, articlein=false]{biblatex}
-\addbibresource{literatura.bib}
+% \usepackage[maxbibnames=99, articlein=false]{biblatex}
+% \addbibresource{literatura.bib}
+
+
 % \documentclass[fin1, tisk]{fmfdelo}
 % Če pobrišete možnost tisk, bodo povezave obarvane,
 % na začetku pa ne bo praznih strani po naslovu, …
@@ -26,7 +28,7 @@
 %   - izr.~prof.~dr.~Ime Priimek
 %   - prof.~dr.~Ime Priimek
 %   za druge variante uporabite ustrezne ukaze
-\mentor{Sandi Klavžar}
+\mentor{prof.~dr.~Sandi Klavžar}
 % \somentor{...}
 % \mentorica{...}
 % \somentorica{...}
@@ -36,7 +38,7 @@
 % \somentorici{...}{...}
 
 % - leto diplome
-\letnica{2023} 
+\letnica{2024} 
 
 % - povzetek v slovenščini
 %   V povzetku na kratko opišite vsebinske rezultate dela. Sem ne sodi razlaga
@@ -63,7 +65,7 @@
 }
 
 % - ime datoteke z viri (vključno s končnico .bib), če uporabljate BibTeX
-% \literatura{....bib}
+\literatura{literatura.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DODATNE DEFINICIJE
@@ -483,11 +485,13 @@ pa lahko najdemo eksplicitne formule za njen izračun.
         Recimo, da imamo povezan graf $G$ na $n$ vozliščih z $\beta(G) = n - 1.$ Označimo metrično bazo
         z $W = \{v_1, v_2, \ldots, v_{n-1}\}$ in $V(G) = W \cup \{v_n\}$. 
         
-        Če odstranimo poljubno vozlišče $v_i$ iz množice $W$, se metrične predstavitve vozlišč ne razlikujejo
-        več - če bi se, potem $W$ ni bila metrična baza. Vemo, da se metrična predstavitev vozlišča, ki 
-        je vsebovano v $W' = W \setminus \{v_i \}$ še vedno razlikuje od vseh ostalih. Sledi $r_{W'}(v_i) = r_{W'}(v_n)$.
-        Ker smo vzeli poljubno vozlišče iz množice $W$, torej velja $$r_{W'}(v_1) = r_{W'}(v_2) = \ldots = r_{W'}(v_n).$$
-        Označimo $deg(v_n) = k, 1 \leq k \leq n-1$. Metrične predstavitve vseh vozlišč glede na $W$ so potem sledeče:
+        Če odstranimo poljubno vozlišče $v_i$ iz množice $W$, morata obstajati vsaj dve vozlišči, katerih metrični 
+        predstavitvi se ne razlikujeta glede na $W' = W \setminus \{v_i \}$ - v nasprotnem primeru $W$ ni bila metrična baza. 
+        Še vedno se metrična predstavitev vsakega vozlišča vsebovanega v $W'$, glede na $W'$, razlikuje od vseh ostalih. 
+        Sledi $r_{W'}(v_i) = r_{W'}(v_n)$.
+        Ker smo vzeli poljubno vozlišče iz množice $W$, lahko enako ponovimo še z vsemi ostalimi. Sledi 
+        $$\forall v_j \in W:  r_{W \setminus \{v_j\}}(v_j)= r_{W \setminus \{v_j\}}(v_n).$$
+        Označimo $deg(v_n) = k, \; 1 \leq k \leq n-1$. Metrične predstavitve vseh vozlišč glede na $W$ so potem sledeče:
         \begin{align*}
             r_W(v_1) & = (0, 1, \ldots 1, d(v_n, v_{k+1}), \ldots,d(v_n, v_{n-1})) \\
             r_W(v_2) & = (1, 0, \ldots 1, d(v_n, v_{k+1}), \ldots,d(v_n, v_{n-1}))\\
@@ -504,7 +508,7 @@ pa lahko najdemo eksplicitne formule za njen izračun.
         
         \item $\Leftarrow$
         Recimo, da imamo povezan graf $G$ na $n$ vozliščih z $\beta(G) = 1.$ Sledi, da obstaja neka 
-        rešljiva baza $W = \{ w \}.$ Označimo $V(G) = \{ v_1, v_2, \ldots , v_{n-1}, w\}.$ Sedaj mora 
+        metrična baza $W = \{ w \}.$ Označimo $V(G) = \{ v_1, v_2, \ldots , v_{n-1}, w\}.$ Sedaj mora 
         veljati, da so števila 
         $$ d(v_1, w),  d(v_2, v_1), \ldots, d(v_{n-1}, w), d(w, w) $$
         paroma različna. Vemo $d(w, w) = 0$. Ker je $G$ povezan, mora obstajati vsaj eno vozlišče, 
@@ -531,7 +535,7 @@ pa lahko najdemo eksplicitne formule za njen izračun.
     TODO
 \end{dokaz}
 
-|\begin{opomba}
+\begin{opomba}
     Za manjše $n$ velja:
     \begin{itemize}
         \item $C_3 + K_1 = K_4 \Rightarrow \beta(C_3 + K_1) = 3.$
@@ -557,7 +561,7 @@ Ni presenetljivo, da lahko najdemo povezavo med metrično dimenzijo in premerom 
 \end{trditev}
 
 \begin{dokaz}
-    Naj bo $R$ rešljiva baza grafa $G$, torej $|R| = \beta(G).$ Zanima nas, največ koliko 
+    Naj bo $R$ metrična baza grafa $G$, torej $|R| = \beta(G).$ Zanima nas, največ koliko 
     vozlišč ima lahko tak graf. Vozlišča iz množice $R$ bodo imela natanko eno 
     komponento metrične predstavitve enako nič, tako se bodo te razlikovale med sabo in od
     vseh ostalih. Če vzamemo vozlišče $v \notin R$, pa velja sledeče:
@@ -669,10 +673,10 @@ Zapišemo lahko naslednjo trditev:
     Če se spomnimo še druge točke \ref{trd:lastnosti_sdim} sledi 
     $$\mu(P_n + K_1) = \beta(P_n + K_1) = \Bigl \lfloor \frac{2n + 2}{5}\Bigr \rfloor.$$
     Spojitev dodatnega vozlišča s potjo ne vpliva na sosednost vozlišč v grafu $P_n,$ zato velja
-    $$\mu(P_n) \leq \mu(P_n + K_1) \leq \mu(P_n) + K_1.$$
+    $$\mu(P_n) \leq \mu(P_n + K_1) \leq \mu(P_n) + 1.$$
     Na novo spojeno vozlišče, je sosednje z vsemi vozlišči v poti. Enakost z zgornjo mejo torej velja natanko
     tedaj, ko ima eno od vozlišč v poti sosedsko predstavitev enako vektorju samih enic, sicer je 
-    $\mu(P_n + K_1) = \beta(P_n + K_1).$
+    $\mu(P_n + K_1) = \mu(P_n).$
     
     V poti je vsako vozlišče sosedno kvečjemu dvem ostalim, torej imamo lahko vektor samih enic samo,
     če je $\mu(P_n) = 2$ - manj ni, saj je $n \geq 4$, glej \ref{trd:lastnosti_sdim}, točko 4.
@@ -763,7 +767,7 @@ $V(H) = \{u_1, u_2, \ldots , u_m \}$. Vpeljimo oznako
 $v_{ij} := (v_i, u_j) \in V(G[H]).$
 Sedaj lahko zapišemo
 \begin{equation} \label{eq:razdalja_produkta}
-    d_{G[H]}(v_{ij}, v_{rs}) = 
+    d_{G[H]}((v_i, u_j), (v_r, u_s)) = 
     \begin{cases}
         d_G(v_i, v_r); & v_i \neq v_r \\
         a_H(u_j, u_s); & \text{sicer}
@@ -790,9 +794,9 @@ Tu je preslikava $a$ definirana v \eqref{eq:fja_a}.
 dimenzijo grafa $H$} \label{ss:mdim_komp_prod}
 
 %TA PODNASLOV NI NAJBOLJ POSREČEN\ldots
-V tem razdelku obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf in $H$ 
-poljuben graf. Naj bosta $a \in V(G)$ in $b \in V(H)$ poljubni vozlišči. Za potrebe tega 
-podpoglavlja vpeljimo naslednje oznake:
+V tem razdelku obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf reda vsaj $2$ 
+in $H$ poljuben graf reda vsaj $2$. Naj bosta $a \in V(G)$ in $b \in V(H)$ poljubni vozlišči. 
+Za potrebe tega podpoglavlja vpeljimo naslednje oznake:
 \begin{itemize}
     \item $H(a) = \{ (a, v) \; | \; v \in V(H) \}$.
     \item $G(b) = \{ (v, b) \; | \; v \in V(G) \}$.
@@ -800,31 +804,67 @@ podpoglavlja vpeljimo naslednje oznake:
     $H_i(a) = \{ (a, v) \; | \; v \in V(H_i) \}$.
 \end{itemize}
 
-Vzemimo sosednji vozlišči $a$, $b \in V(G)$. Vemo, da je vsako vozlišče iz $H(b)$ 
-sosednje vsakemu iz $H_i(a).$ 
+Vzemimo sosednji vozlišči $a$, $b \in V(G)$. Vemo, da je vsako vozlišče iz $H_j(b)$ 
+sosednje vsakemu iz $H_i(a)$ za vse $i, j \in \{1, 2, \ldots k\}$.  
 Hitro lahko preverimo, da je inducirani podgraf grafa $G[H]$, kjer vzamemo eno 
-vozlišče iz množice $H(b)$ in vsa vozlišča iz $H_i(a)$, izomorfen grafu $H_i + K_1.$ 
-V nadaljevanju bomo pokazali, da lahko z rešljivo bazo tega združenega grafa
-omejimo rešljivo bazo $G[H]$.
+vozlišče iz množice $H_j(b)$ in vsa vozlišča iz $H_i(a)$, izomorfen grafu $H_i + K_1.$ 
+V nadaljevanju bomo pokazali, da lahko z metrično dimenzijo tega spoja grafov
+omejimo metrično dimenzijo $G[H]$.
+
+
+\begin{lema}
+    Naj bosta $a, b \in V(G)$ različni vozlišči. Potem velja 
+    \begin{enumerate}
+        \item $\forall x, y \in H(a), z \in H(b): d_{G[H]}(x,z) = d_{G[H]}(y,z).$
+        \item $\forall x, y \in H_i(a), z \in H_j(a): d_{G[H]}(x,z) = d_{G[H]}(y,z).$
+    \end{enumerate}
+\end{lema}
+\begin{proof}
+    \begin{enumerate}
+        \item Velja $x = (a, u_i), y = (a, u_j), z = (b, u_k)$ za neke $u_i, u_j, u_k \in V(H)$.
+        Po formuli \eqref{eq:razdalja_produkta} velja $d_{G[H]}((a, u_i), (b, u_k))
+        = d_G(a, b) = d_{G[H]}((a, u_j), (b, u_k))$, saj sta $a$ in $b$ različni vozlišči.
+        \item Velja $x = (a, u_i), y = (a, u_j), z = (a, u_k)$ za neke $u_i, u_j \in V(H_i), u_k \in V(H_j)$.
+        Po formuli \eqref{eq:razdalja_produkta} velja $d_{G[H]}((a, u_i), (a, u_k)) = 
+        a_H(u_i, u_k) = d_{G[H]}((a, u_j), (a, u_k))$, saj sta $a$ in $b$ različni vozlišči.
+    \end{enumerate}
+ \end{proof}
+
+
 
 TODO - leme
 
+\begin{lema}
+    Naj bo $W$ metrična baza grafa $G[H]$, kjer je $G$ povezan graf reda vsaj $2$ in $H$ graf reda vsaj $2$, ki vsebuje 
+    $k$ komponent. Potem velja
+   $$\forall a \in V(G) \; \forall i \in \{1, 2, \ldots, k\} : V(H_i) \geq 2 \Rightarrow W \cap H_i(a) \neq \emptyset.$$
+   Velja še več, če je $B_i$ metrična baza $H_i$, potem je $|W \cap H_i(a)| \geq \beta(H_i).$
+\end{lema}
+
+\begin{dokaz}
+    Denimo, da obstaja $a \in V(G)$ za kateterega obstaja tak $i \in \{1, 2, \ldots, k\}$, da je
+    $V(H_i) \geq 2$ in velja $ W \cap H_i(a) = \emptyset$. Potem obstajata vsaj dve vozlišči iz $H_i(a)$, ki imata različni
+    metrični predstavitve glede na $W$. 
+
+\end{dokaz}
+
+
 % \begin{lema}
-%     Naj bo $Q$ povezan graf. Obstaja rešljiva baza $S$ grafa $Q + K_1,$ da je 
+%     Naj bo $Q$ povezan graf. Obstaja metrična baza $S$ grafa $Q + K_1,$ da je 
 %     $S \subseteq V(Q).$
 % \end{lema}
 
 % \begin{dokaz}
 %     Združitev grafov $Q + K_1$ ima množico vozlišč $V(Q) \cup \{ v \}.$ Naj bo $S$ 
-%     rešljiva baza $Q + K_1$. Če $v \notin S.$ je lema dokazana. Denimo $v \in S.$ 
+%     metrična baza $Q + K_1$. Če $v \notin S.$ je lema dokazana. Denimo $v \in S.$ 
 %     V tem primeru ločimo dve situaciji:
 %     \begin{enumerate}
 %         \item $S \setminus \{ v \} = \emptyset$ 
         
 %         Trditev \ref{trd:mdim_polni_pot} nam pove $Q = P_1 = K_1.$ Sledi $Q + K_1 = P_2.$ 
-%         Hitro lahko preverimo, da je rešljiva baza grafa $P_2$ množica, ki vsebuje enega 
+%         Hitro lahko preverimo, da je metrična baza grafa $P_2$ množica, ki vsebuje enega 
 %         od robnih vozlišč. Torej bi lahko namesto $v$, vzeli vozlišče, ki sestavlja graf 
-%         $Q$ in tako dobimo rešljivo bazo $S \subseteq V(Q).$
+%         $Q$ in tako dobimo metrično bazo $S \subseteq V(Q).$
         
 %         \item $S \setminus \{ v \} \not = \emptyset$
         
