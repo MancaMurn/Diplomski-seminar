@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex Murn-27201103-2023"] 0 "Murn-27201103-2023.aux" "Murn-27201103-2023.bbl" "Murn-27201103-2023" 1714892501
+["bibtex Murn-27201103-2023"] 0 "Murn-27201103-2023.aux" "Murn-27201103-2023.bbl" "Murn-27201103-2023" 0
   "./fmf-sl.bst" 1696353003 29799 99ae73dde7a42b22c134be128561bc85 ""
-  "Murn-27201103-2023.aux" 1714892495 7759 7550fc2155ef07a7f488a03390a5771f "pdflatex"
+  "Murn-27201103-2023.aux" 0 -1 0 "pdflatex"
   "literatura.bib" 1712150365 943 d559ccfa40bf7dd6f34dd2e1fb6d8da9 ""
   (generated)
   "Murn-27201103-2023.bbl"
   "Murn-27201103-2023.blg"
-["makeindex Murn-27201103-2023.idx"] 1714892498 "Murn-27201103-2023.idx" "Murn-27201103-2023.ind" "Murn-27201103-2023" 1714892501
-  "Murn-27201103-2023.idx" 1714892494 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex Murn-27201103-2023.idx"] 0 "Murn-27201103-2023.idx" "Murn-27201103-2023.ind" "Murn-27201103-2023" 0
+  "Murn-27201103-2023.idx" 0 -1 0 "pdflatex"
   (generated)
   "Murn-27201103-2023.ind"
   "Murn-27201103-2023.ilg"
-["pdflatex"] 1714892499 "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.tex" "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.pdf" "Murn-27201103-2023" 1714892501
-  "<pdfa.xmpi" 1714892500 5487 0 ""
+["pdflatex"] 1715094789 "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.tex" "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.pdf" "Murn-27201103-2023" 1715094789
+  "<pdfa.xmpi" 1715094790 5487 0 ""
   "C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1254938640 2375 baa924870cfb487815765f9094cf3728 ""
   "C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1254938640 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1254938640 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -169,25 +169,25 @@
   "IMG_polni.jpg" 1705918886 92595 5fe45de71ff25625065421ef25854b02 ""
   "IMG_pot.jpg" 1705918884 51266 2254e71c0e574a430a059a5956f2646b ""
   "IMG_produkt.jpg" 1705928435 197931 909322c2497b84b67c3da0e1b4375d62 ""
-  "Murn-27201103-2023.aux" 1714892495 7759 7550fc2155ef07a7f488a03390a5771f "pdflatex"
+  "Murn-27201103-2023.aux" 0 -1 0 "pdflatex"
   "Murn-27201103-2023.bbl" 1712150563 486 f7f239c736cf01ac6ce7bd829f9b3c7b "bibtex Murn-27201103-2023"
-  "Murn-27201103-2023.ind" 1714892499 0 d41d8cd98f00b204e9800998ecf8427e "makeindex Murn-27201103-2023.idx"
-  "Murn-27201103-2023.out" 1714892495 3194 61294929d2a46acd0c3a08516a061440 "pdflatex"
-  "Murn-27201103-2023.tex" 1714892498 48110 1d964fde69362a86d395d29299cd62b9 ""
-  "Murn-27201103-2023.toc" 0 -1 0 "pdflatex"
-  "Murn-27201103-2023.xmpdata" 1714892499 164 95e7e65459630b8e1383c10ace0f1660 "pdflatex"
-  "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.aux" 1714892495 7759 7550fc2155ef07a7f488a03390a5771f ""
-  "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.tex" 1714892498 48110 1d964fde69362a86d395d29299cd62b9 ""
+  "Murn-27201103-2023.ind" 0 -1 0 "makeindex Murn-27201103-2023.idx"
+  "Murn-27201103-2023.out" 0 -1 0 "pdflatex"
+  "Murn-27201103-2023.tex" 1715094786 50696 dd1ade02f801ee931187995358263805 ""
+  "Murn-27201103-2023.xmpdata" 0 -1 0 "pdflatex"
+  "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.aux" 1715094789 9 a94a2480d3289e625eea47cd1b285758 ""
+  "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.ind" 0 -1 0 ""
+  "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.tex" 1715094786 50696 dd1ade02f801ee931187995358263805 ""
   "fmfdelo.cls" 1696353003 22309 1e74fe24a81891defb64cb0b0ee32a4d ""
-  "pdfa.xmpi" 1714892500 5487 79a31749dc676836dd72bdd5b136edab "pdflatex"
+  "pdfa.xmpi" 0 -1 0 "pdflatex"
   (generated)
   "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.log"
-  "Murn-27201103-2023.log"
-  "Murn-27201103-2023.aux"
   "Murn-27201103-2023.toc"
+  "Murn-27201103-2023.pdf"
   "Murn-27201103-2023.xmpdata"
   "c:/Users/FMF/Documents/diplomski-seminar/Murn-27201103-2023.pdf"
-  "Murn-27201103-2023.pdf"
+  "Murn-27201103-2023.aux"
   "Murn-27201103-2023.idx"
   "Murn-27201103-2023.out"
   "pdfa.xmpi"
+  "Murn-27201103-2023.log"

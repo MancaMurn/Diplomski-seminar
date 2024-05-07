@@ -795,7 +795,8 @@ dimenzijo grafa $H$} \label{ss:mdim_komp_prod}
 
 %TA PODNASLOV NI NAJBOLJ POSREČEN\ldots
 V tem razdelku obravnavamo leksikografski produkt $G[H]$, kjer je $G$ povezan graf reda vsaj $2$ 
-in $H$ poljuben graf reda vsaj $2$. Naj bosta $a \in V(G)$ in $b \in V(H)$ poljubni vozlišči. 
+in $H$ poljuben graf reda vsaj $2$, ki ima $k\geq 1$ komponent. 
+Naj bosta $a \in V(G)$ in $b \in V(H)$ poljubni vozlišči. 
 Za potrebe tega podpoglavlja vpeljimo naslednje oznake:
 \begin{itemize}
     \item $H(a) = \{ (a, v) \; | \; v \in V(H) \}$.
@@ -811,75 +812,126 @@ vozlišče iz množice $H_j(b)$ in vsa vozlišča iz $H_i(a)$, izomorfen grafu $
 V nadaljevanju bomo pokazali, da lahko z metrično dimenzijo tega spoja grafov
 omejimo metrično dimenzijo $G[H]$.
 
+Naprej si oglejmo naslednje leme.
 
-\begin{lema}
-    Naj bosta $a, b \in V(G)$ različni vozlišči. Potem velja 
-    \begin{enumerate}
-        \item $\forall x, y \in H(a), z \in H(b): d_{G[H]}(x,z) = d_{G[H]}(y,z).$
-        \item $\forall x, y \in H_i(a), z \in H_j(a): d_{G[H]}(x,z) = d_{G[H]}(y,z).$
-    \end{enumerate}
+\begin{lema} \label{lema:1}
+    Naj bo $a\in V(G)$. Potem velja 
+    $$\forall x, y \in H(a) \; \forall z \in V(G[H]): d_{G[H]}(x,z) = d_{G[H]}(y,z).$$
 \end{lema}
-\begin{proof}
-    \begin{enumerate}
-        \item Velja $x = (a, u_i), y = (a, u_j), z = (b, u_k)$ za neke $u_i, u_j, u_k \in V(H)$.
-        Po formuli \eqref{eq:razdalja_produkta} velja $d_{G[H]}((a, u_i), (b, u_k))
-        = d_G(a, b) = d_{G[H]}((a, u_j), (b, u_k))$, saj sta $a$ in $b$ različni vozlišči.
-        \item Velja $x = (a, u_i), y = (a, u_j), z = (a, u_k)$ za neke $u_i, u_j \in V(H_i), u_k \in V(H_j)$.
-        Po formuli \eqref{eq:razdalja_produkta} velja $d_{G[H]}((a, u_i), (a, u_k)) = 
-        a_H(u_i, u_k) = d_{G[H]}((a, u_j), (a, u_k))$, saj sta $a$ in $b$ različni vozlišči.
-    \end{enumerate}
- \end{proof}
 
+\begin{dokaz}
+        Označimo $x = (a, u_i), \; y = (a, u_j), \; z = (b, u_k)$ za neke $u_i, u_j, u_k \in V(H)$ in $b \in V(G)$.
+        Denimo, da sta $a$ in $b$ različni. Potem po \eqref{eq:razdalja_produkta} velja 
+        $d_{G[H]}((a, u_i), (b, u_k)) = d_G(a, b) = d_{G[H]}((a, u_j), (b, u_k))$. 
+        Če pa $a = b$, po \eqref{eq:razdalja_produkta} velja $d_{G[H]}((a, u_i), (a, u_k)) = 
+        a_H(u_i, u_k) = d_{G[H]}((a, u_j), (a, u_k))$. 
+ \end{dokaz}
 
-
-TODO - leme
-
-\begin{lema}
-    Naj bo $W$ metrična baza grafa $G[H]$, kjer je $G$ povezan graf reda vsaj $2$ in $H$ graf reda vsaj $2$, ki vsebuje 
-    $k$ komponent. Potem velja
+\begin{lema} \label{lema:2}
+    Naj bo $W$ metrična baza grafa $G[H]$. Potem 
    $$\forall a \in V(G) \; \forall i \in \{1, 2, \ldots, k\} : V(H_i) \geq 2 \Rightarrow W \cap H_i(a) \neq \emptyset.$$
-   Velja še več, če je $B_i$ metrična baza $H_i$, potem je $|W \cap H_i(a)| \geq \beta(H_i).$
+   Velja še več, $|W \cap H_i(a)| \geq \beta(H_i).$
 \end{lema}
 
 \begin{dokaz}
     Denimo, da obstaja $a \in V(G)$ za kateterega obstaja tak $i \in \{1, 2, \ldots, k\}$, da je
-    $V(H_i) \geq 2$ in velja $ W \cap H_i(a) = \emptyset$. Potem obstajata vsaj dve vozlišči iz $H_i(a)$, ki imata različni
-    metrični predstavitve glede na $W$. 
+    $V(H_i) \geq 2$ in velja $ W \cap H_i(a) = \emptyset$. Potem obstajata vsaj dve vozlišči iz $H_i(a)$ z različnimi
+    metričnimi predstavitvami glede na $W$, kar je v protislovju s \ref{lema:1}, saj je $H_i(a) \subseteq H(a)$.
 
+    Označimo sedaj $W \cap H_i(a) = \{ (a, u_1), (a, u_2), \ldots , (a, u_t)\},$ kjer je $t \leq \beta(H_i).$
+    Oglejmo si množico $S = \{u_1, u_2, \ldots, u_t\},$ ki je podmnožica $V(H_i).$ Ker je $|S| \leq \beta(H_i),$
+    obstajata dve voizlišči v $H_i$, ki imata enako metrično predstavitev glede na $S$. Označimo ti dve vozlišči
+    z $x$ in $y$. Velja torej $d_{H_i}(x, u_i) = d_{H_i}(y, u_i)$ za vsak $u_i \in S$. Potem sledi tudi
+    $a_{H_i}(x, u_i) = a_{H_i}(y, u_i)$ in lahko zapišemo:
+    $$d_{G[H]}((a, x), (a, u_i)) = a_H(x, u_i) = a_H(y, u_i) = d_{G[H]}((a, y), (a, u_i))$$ za vsak $u_i \in S.$
+    To pa je v protislovju s tem, da so vozlišča $(a, u_i)$ vsebovana v metrični bazi $W$.
+\end{dokaz}
+
+%bi to morda dala v poglavje z metrično dimenzijo?
+
+\begin{lema} \label{lema:3}
+    Naj bo $Q$ povezan graf. Obstaja metrična baza $S$ grafa $Q + K_1,$ da je 
+    $S \subseteq V(Q).$
+\end{lema}
+% Preglej ta dokaz, malo ga ne razumem.
+\begin{dokaz}
+    Označimo množico vozlišč $V(Q + K_1) = V(Q) \cup \{ u \}.$ Naj bo $S$ 
+    metrična baza $Q + K_1$. Če $u \notin S$ je lema dokazana. 
+    
+    Denimo $u \in S.$ 
+    V tem primeru ločimo dve situaciji:
+    \begin{enumerate}
+        \item $S \setminus \{ u \} = \emptyset$     
+        
+        Po \ref{trd:mdim_polni_pot} sledi $Q + K_1 = P_n$, to pa je možno le za $Q = K_1$, 
+        torej za $n = 2$ po defniniciji spoja grafov v \ref{razredi_grafov}.
+     
+        Hitro lahko preverimo, da je metrična baza grafa $P_2$ množica, ki vsebuje enega 
+        od robnih vozlišč. Torej bi lahko namesto $v$, vzeli vozlišče, ki sestavlja graf 
+        $Q$ in tako dobimo metrično bazo $S \subseteq V(Q).$
+        
+        \item $S \setminus \{ v \} \not = \emptyset$ 
+        
+        Definirajmo $B = V(Q + K_1) \setminus S$ in naj bo $r = |B|,$ torej 
+        $B = \{b_1, b_2, \ldots, b_r\}$. Za $t \in \{1, 2, \ldots, r\}$ definiramo množici 
+        $S_t = S \cup \{b_t\}$ in $B_t = B \setminus \{b_t\}.$
+        Če obstaja $t$, da $\forall u \in B_t : \; r_{S_t}(u) \not = (1, 1, \ldots, 1),$
+        je lema dokazana. Sicer je $Q + K_1$ polen graf. Za poln graf pa lahko vzamemo
+        rešljivo množico, ki vsebuje vse razen enega vozlišča, torej $S = V(Q).$
+    \end{enumerate}
 \end{dokaz}
 
 
-% \begin{lema}
-%     Naj bo $Q$ povezan graf. Obstaja metrična baza $S$ grafa $Q + K_1,$ da je 
-%     $S \subseteq V(Q).$
-% \end{lema}
+\begin{lema} 
+    Naj bo $a \in V(G)$ in $B_i$ metrična baza grafa $H_i + K_1,$ za katero velja $B_i \subseteq V(H_i).$
+    Označimo $W_i(a) = \{(a,x) | x \in B_i\}$ in $W(a) = \cup_{1 \leq i \leq k} W_i(a)$. 
+    Potem sta za $x, y \in V(H)$ ekvivalentni naslednji trditvi:
+    \begin{enumerate}
+        \item $r_{W(a)}(a, x) = r_{W(a)}(a, y);$
+        \item $x \in V(H_i), \; y \in V(H_j), \; r_{B_i}(x) = \2, \; r_{B_j}(y) = \2,$ kjer je $i\neq j.$
+    \end{enumerate}
+\end{lema}
 
-% \begin{dokaz}
-%     Združitev grafov $Q + K_1$ ima množico vozlišč $V(Q) \cup \{ v \}.$ Naj bo $S$ 
-%     metrična baza $Q + K_1$. Če $v \notin S.$ je lema dokazana. Denimo $v \in S.$ 
-%     V tem primeru ločimo dve situaciji:
-%     \begin{enumerate}
-%         \item $S \setminus \{ v \} = \emptyset$ 
-        
-%         Trditev \ref{trd:mdim_polni_pot} nam pove $Q = P_1 = K_1.$ Sledi $Q + K_1 = P_2.$ 
-%         Hitro lahko preverimo, da je metrična baza grafa $P_2$ množica, ki vsebuje enega 
-%         od robnih vozlišč. Torej bi lahko namesto $v$, vzeli vozlišče, ki sestavlja graf 
-%         $Q$ in tako dobimo metrično bazo $S \subseteq V(Q).$
-        
-%         \item $S \setminus \{ v \} \not = \emptyset$
-        
-%         Definirajmo $B = V(Q + K_1) \setminus S$ in naj bo $r = |B|,$ torej 
-%         $B = \{b_1, b_2, \ldots, b_r\}$. Za $t \in \{1, 2, \ldots r\}$ definiramo množici 
-%         $S_t = S \cup \{b_t\}$ in $B_t = B \setminus \{b_t\}.$
-%         Če obstaja $t$, da $\forall u \in B_t : \; r_{S_t}(u) \not = (1, 1, \ldots, 1),$
-%         je lema dokazana. Sicer je $Q + K_1$ polen graf. Za poln graf pa lahko vzamemo
-%         rešljivo množico, ki vsebuje vse razen enega vozlišča, torej $S = V(Q).$
-%     \end{enumerate}
-% \end{dokaz}
-
-%NEKAJ LEM VMES
+\begin{dokaz}
+    TODO
+\end{dokaz}
 
 
+\begin{lema}
+    Naj bo $G$ povezan graf reda vsaj $2$ in $H$ graf reda vsaj $2$, ki vsebuje $k$ komponent.
+    Naj bo $a \in V(G)$ in $W$ metrična baza grafa $G[H].$ Označimo $W(a) = W \cap H(a).$ Potem velja:
+    $$|W(a)| \leq \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1.$$
+\end{lema}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+% We consider two different vertices u, v ∈ V(G). Let PG(u, v) be a shortest u−v path in G and ℓ(PG(u, v)) be the length of
+% PG(u, v). We define PG(u, v) = {PG(u, v)}. Let z be a vertex in V(G) \ V(PG(u, v)). If ℓ(PG(u, v))+ℓ(PG(v, z)) > ℓ(PG(u, z))
+% and ℓ(PG(u, v)) + ℓ(PG(u, z)) > ℓ(PG(v, z)), then each path in PG(u, v) is called an eccentric path of G.
+
+\begin{lema}
+    Naj bo $G$ povezan graf reda vsaj $2$ in $H$ graf reda vsaj $2$, ki vsebuje $k$ komponent.
+    Naj bodo $a, b \in V(G)$. Označimo $W(a) = \cup_{a \in V(G)} W(a),$ kjer je $W(a)$ rešljiva množica za graf 
+    $H(a)$. Potem za $x, y \in V(H)$ velja:
+    $$r_W(a, x) = r_W(a, y) \Leftrightarrow r_{W(a)}(a,x) = \2, \; r_{W(b)}(b,y) = \2$$ in je vsaka najkrajša pot med
+    $a$ in $b$ ekcentrična ??? pot dolžine $2$.
+\end{lema}
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
+
+\begin{lema}
+    Naj bo $G$ povezan graf reda $n \geq 2$ in $H$ graf reda vsaj $2$, ki vsebuje $k$ komponent.
+    $$\beta(G[H]) \leq 
+    n \cdot \Bigl ( \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1  \Bigr ) + (n-2). $$
+\end{lema}ž
+
+\begin{dokaz}
+    TODO
+\end{dokaz}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
