@@ -815,7 +815,8 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
     Naj bosta $a, b \in V(G)$ različna. Potem velja 
     \begin{enumerate}
         \item $\forall x, y \in H(a) \; \forall z \in H(b): d_{G[H]}(x,z) = d_{G[H]}(y,z),$
-        \item $\forall x, y \in H_i(a) \; \forall z \in H_j(a): i \neq j \Rightarrow d_{G[H]}(x,z) = d_{G[H]}(y,z).$
+        \item Naj bo $l \neq i$ in $l \neq j$, potem velja 
+        $\forall x \in H_i(a), \; y \in H_j(a) \; \forall z \in H_l(a): d_{G[H]}(x,z) = d_{G[H]}(y,z).$
     \end{enumerate}
 \end{lema}
 
@@ -826,9 +827,9 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
         $u_i, u_j, u_k \in V(H)$.
         Ker je $a \neq b$, po \eqref{eq:razdalja_produkta} sledi 
         $d_{G[H]}((a, u_i), (b, u_k)) = d_G(a, b) = d_{G[H]}((a, u_j), (b, u_k))$. 
-        \item Označimo $x = (a, u_i), \; y = (a, u_j), \; z = (a, u_k)$ za neke 
-        $u_i, u_j \in V(H_i), \; u_k \in V(H_j)$.
-        Po \eqref{eq:razdalja_produkta} sledi $d_{G[H]}((a, u_i), (a, u_k)) = 
+        \item Označimo $x = (a, u_i), \; y = (a, u_j), \; z = (a, u_l)$ za neke 
+        $u_i \in V(H_i), \; u_j \in V(H_j), \; u_l \in V(H_l)$.
+        Po \eqref{eq:razdalja_produkta} sledi $d_{G[H]}((a, u_i), (a, u_l)) = 
         a_H(u_i, u_k) = 2 = a_H(u_j, u_k)= d_{G[H]}((a, u_j), (a, u_k))$.
     \end{enumerate} 
  \end{dokaz}
@@ -842,8 +843,9 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
 
 \begin{dokaz}
     Denimo, da obstaja $a \in V(G)$ za kateterega obstaja tak $i \in \{1, 2, \ldots, k\}$, da je
-    $V(H_i) \geq 2$ in velja $ W_i(a) = \emptyset$. Potem obstajata vsaj dve vozlišči iz $H_i(a)$ z različnimi
-    metričnimi predstavitvami glede na $W$, za katerega velja $W \subseteq \cup $ kar je v protislovju s \ref{lema:1}, saj je $H_i(a) \subseteq H(a)$.
+    $V(H_i) \geq 2$ in velja $ W_i(a) = \emptyset$. Potem obstajata vsaj dve vozlišči iz $x, y \in H_i(a)$ z različnimi
+    metričnimi predstavitvami glede na $W$, torej mora obstajati vsaj en $z \in W$, da bo $d_{G[H]}(x, z) \neq d_{G[H]}(x,z).$ 
+    To pa je v protislovju s \ref{lema:1}, saj je $z$ bodisi iz $H(b)$ za nek $b \neq a$ bodisi iz $H_j(a)$ za nek $i\neq j$.
 
     Označimo sedaj $W_i(a) = \{ (a, u_1), (a, u_2), \ldots , (a, u_t)\}$ in denimo, da je $t \leq \beta(H_i).$
     Oglejmo si množico $S = \{u_1, u_2, \ldots, u_t\},$ ki je podmnožica $V(H_i).$ Ker je $|S| \leq \beta(H_i),$
@@ -863,9 +865,10 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
 
 \begin{dokaz}
     Označimo $S = \{(a, v_1), (a, v_2), \ldots, (a, v_m)\}$.
-    Denimo, da $W(a) \cap S < m-1$. Potem obstajata vsaj dve vozlišči $(a, v_i), (a, v_j) \in S,$ za kateri velja
-    $d((a, v_i), (a, w)) \neq d((a, v_i), (a, w)) \; \forall (a, w) \in W(a) \subseteq W.$  
-    Ker je $W(a) \subseteq H(a),$ je to v protislovju s \ref{lema:1}.
+    Denimo, da $W(a) \cap S < m-1$. Potem obstajata vsaj dve vozlišči $(a, v_i), (a, v_j) \in S,$ 
+    za kateri obstaja vozlišče $(a, w) \in W(a)$, da je
+    $d((a, v_i), (a, w)) \neq d((a, v_j), (a, w)).$  
+    Ker so $w, v_i, v_j$ vsi iz različnih komponent $H$, je to v protislovju s \ref{lema:1}.
 \end{dokaz}
 
 
@@ -873,7 +876,7 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
     Naj bo $Q$ povezan graf. Obstaja metrična baza $W$ grafa $Q + K_1,$ da je 
     $W \subseteq V(Q).$
 \end{lema}
-% Preglej ta dokaz, malo ga ne razumem.
+
 \begin{dokaz}
     Označimo množico vozlišč $V(Q + K_1) = V(Q) \cup \{ u \}.$ Naj bo $W$ 
     metrična baza $Q + K_1$. Če $u \notin W$ je lema dokazana. 
