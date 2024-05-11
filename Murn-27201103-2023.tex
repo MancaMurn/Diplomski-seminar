@@ -922,20 +922,63 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
 \begin{dokaz}
     $\Leftarrow$
 
-    Denimo 
-    $\Rightarrow$
+    Naj bo $x \in V(H_i), \; y \in V(H_j), \; r_{B_i}(x) = \2, \; r_{B_j}(y) = \2,$ kjer je $i\neq j.$ Torej velja:
+    \begin{itemize}
+        \item $\forall w \in B_i: \; d_{H_i}(x, w) = 2$ in za take $w$ sledi tudi $a_{H_i}(x, w) = 2,$
+        \item $\forall w \in B_j: \; d_{H_j}(y, w) = 2$ in za take $w$ sledi tudi $a_{H_j}(y, w) = 2.$
+    \end{itemize}
+    Hkrati pa je očitno tudi
+    \begin{itemize}
+        \item $\forall w \in V(H)\setminus V(H_i): \; a_{H}(x, w) = 2$,
+        \item $\forall w \in V(H)\setminus V(H_j): \; a_{H}(y, w) = 2$.
+    \end{itemize}
+    Potem je 
+    $$d_{G[H]}((a, x), (a, w)) = a_H(x, w) = 2 = a_H(y, w)= d_{G[H]}((a, y), (a, w))$$
+    za vse $(a, w) \in W(a)$ in sledi $r_{W(a)}(a, x) = r_{W(a)}(a, y).$
 
-    Velja $d((a,x),(a,z)) = d((a,y),(a,z))$ za vsak $(a,z) \in W(a).$ 
+    $\Rightarrow$
+    Naj bosta $x$ in $y$ različna, za katera velja $r_{W(a)}(a, x) = r_{W(a)}(a, y).$ Torej je 
+    $$d_{G[H]}((a, x), (a, w)) = a_H(x, w) = a_H(y, w)= d_{G[H]}((a, y), (a, w))$$ za vsak
+    $w \in B = B_i \cup B_2 \cup \ldots \cup B_k.$
+    Opazimo, da v grafu $H + K_1$ velja $\forall v, u \in V(H): \; d(v,u) = a(v, u).$
+
+    Naj bo $x \in V(H_i).$ Potem je očitno $\forall w \in B\setminus B_i: a_H(x, w) = 2 = a_H(y, w).$
+    Preveriti moramo še vozlišča iz $B_i.$
+    \begin{enumerate}
+        \item Denimo, da $\exists w_i \in B_i: \; a_H(x, w_i) = 0 \Rightarrow a_H(y,w_i) = 0$ in $x = y$, kar je prostislovje.
+        \item Denimo, da $\exists w_i \in B_i: \; a_H(x, w_i) = 1 \Rightarrow a_H(y,w_i) = 1 \Rightarrow y \in V(H_i),$ to pa je 
+        protislovju s predpostavko. Ker je $B_i$ baza $H_i + K_1,$ bi moralo veljati 
+        $d_{H_i + K_1}(x, b) = a_H(x, b) \neq a_H(y, b) = d_{H_i + K_1}(y, b)$ 
+        za vsaj en $b \in B_i$.
+    \end{enumerate}
+    Sledi $\forall w \in B: \; a_H(x, w) = 2 = a_H(y, w)$ in $r_{B_i}(x) = \2 = r_{B_j}(y).$
 \end{dokaz}
 
 
-\begin{lema} \label{lema:4}
+\begin{trditev} \label{trditev_zgornja_meja_preseka}
     Naj bo $a \in V(G)$ in $W$ metrična baza grafa $G[H].$ Označimo $W(a) = W \cap H(a).$ Potem velja:
     $$|W(a)| \leq \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1.$$
-\end{lema}
+\end{trditev}
+
+TEGA DOKAZA NE RAZUMEM
 
 \begin{dokaz}
-    TODO
+    Naj bodo za vsak $i = 1, 2, \ldots, k$ $B_i$ metrična baze $H_i + K_1,$ takšna, da je $B_i \subseteq V(H_i).$ 
+    Ta obstaja po \ref{lema:2}. Označimo $W_i(a) = \{(a,x) | \; x \in B_i\}$ in $\widetilde{W}(a) = \cup_{1 \leq i \leq k} W_i(a)$.
+    Ločimo dva primera.
+    \begin{enumerate}
+        \item Denimo, da ne obstajata taka $x \in V(H_i)$ in $y\in V(H_j),$ ki bi zadoščala \ref{lema:3}.
+        Torej velja $r_{\widetilde{W}(a)}(a, x) \neq r_{\widetilde{W}(a)}(a, y)$ za vse $(a, x), (a, y) \in H(a)$.
+        To pomeni, da je $\widetilde{W}(a)$ rešljiva za $H(a).$ Sledi
+        $$|W(a)| \leq |\widetilde{W}(a)| = \sum_{i = 1}^{k} |W_i(a)| = \sum_{i = 1}^{k} |B_i| = \sum_{i = 1}^{k} \beta(H_i + K_1).$$
+        \item Demimo, da obstajata taka $x \in V(H_i)$ in $y\in V(H_j),$ ki zadoščata \ref{lema:3}.
+        Označimo $S =\{(a, x) \; | \; x \in V(H_i), r_{B_i}(x) = \2 \}$. Opazimo, da je $|S| \leq k,$ saj je v vsaki množici $V(H_i)$
+        največ eno tako vozlišče, sicer $B_i$ ne bi bila metrična baza za $H_i + K_1$. Po \ref{trd:cela_resljiva} lahko izberemo 
+        $\widetilde{S} = S \setminus \{z\}$ za nek $z \in S$ in vemo, da je $\widetilde{S}$ rešljiva za $S$. $W_i(a)$ je rešljiva za $H_i(a)$
+        in sledi, da je $W(a) \cup \widetilde{S}$ rešljiva za $H(a).$ Velja
+        $$|W(a)| \leq |W(a) \cup \widetilde{S}| \leq |W(a)| + |\widetilde{S}|  \leq ...$$
+        
+    \end{enumerate}
 \end{dokaz}
 
 % We consider two different vertices u, v ∈ V(G). Let PG(u, v) be a shortest u−v path in G and ℓ(PG(u, v)) be the length of
