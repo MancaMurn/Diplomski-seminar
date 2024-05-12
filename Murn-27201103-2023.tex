@@ -954,11 +954,13 @@ navzgor omejimo metrično dimenzijo $G[H]$. Navzdol pa jo bomo omejili s pomočj
     Sledi $\forall w \in B: \; a_H(x, w) = 2 = a_H(y, w)$ in $r_{B_i}(x) = \2 = r_{B_j}(y).$
 \end{dokaz}
 
+TU ŠE LEMA DA JE w(A) = w PRESEK h(A) BAZA ZA h(A).
++ POPRAVI OZNAKE h(A) NAJ BO INDUCIRAN PODGRAF, MEDTEM KO v(h(A)) MNOZICA VOZLIŠČ.
 
-\begin{trditev} \label{trditev_zgornja_meja_preseka}
+\begin{lema} \label{lema:4}
     Naj bo $a \in V(G)$ in $W$ metrična baza grafa $G[H].$ Označimo $W(a) = W \cap H(a).$ Potem velja:
     $$|W(a)| \leq \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1.$$
-\end{trditev}
+\end{lema}
 
 TEGA DOKAZA NE RAZUMEM
 
@@ -975,36 +977,48 @@ TEGA DOKAZA NE RAZUMEM
         Označimo $S =\{(a, x) \; | \; x \in V(H_i), r_{B_i}(x) = \2 \}$. Opazimo, da je $|S| \leq k,$ saj je v vsaki množici $V(H_i)$
         največ eno tako vozlišče, sicer $B_i$ ne bi bila metrična baza za $H_i + K_1$. Po \ref{trd:cela_resljiva} lahko izberemo 
         $\widetilde{S} = S \setminus \{z\}$ za nek $z \in S$ in vemo, da je $\widetilde{S}$ rešljiva za $S$. $W_i(a)$ je rešljiva za $H_i(a)$
-        in sledi, da je $W(a) \cup \widetilde{S}$ rešljiva za $H(a).$ Velja
-        $$|W(a)| \leq |W(a) \cup \widetilde{S}| \leq |W(a)| + |\widetilde{S}|  \leq ...$$
+        in sledi, da je $\widetilde{W}(a) \cup \widetilde{S}$ rešljiva za $H(a).$ Velja
+        $$|W(a)| \leq |\widetilde{W}(a) \cup \widetilde{S}|  \leq |\widetilde{W}(a)| +  |\widetilde{S}| \leq 
+        \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1. $$
         
     \end{enumerate}
 \end{dokaz}
 
-% We consider two different vertices u, v ∈ V(G). Let PG(u, v) be a shortest u−v path in G and ℓ(PG(u, v)) be the length of
-% PG(u, v). We define PG(u, v) = {PG(u, v)}. Let z be a vertex in V(G) \ V(PG(u, v)). If ℓ(PG(u, v))+ℓ(PG(v, z)) > ℓ(PG(u, z))
-% and ℓ(PG(u, v)) + ℓ(PG(u, z)) > ℓ(PG(v, z)), then each path in PG(u, v) is called an eccentric path of G.
+
+Vzemimo dve vozlišči $u, v \in V(G)$ in definirajmo množico, ki vsebuje vse najkrajše poti med njima: 
+$$P(u,v) = \{w \in V(G) | w \; \text{del katere od najkrajših poti med $u$ in $v$}\}.$$
+Naj bo $z\in V(G) \setminus P(u,v).$ Če velja $d(u, v) + d(v, z) > d(u, z)$ in $d(u, v) + d(u, z) > d(v, z)$
+ potem je vsaka pot med $u$ in $v$ iz $P(uv)$ ekscentrična. 
+
 
 \begin{lema} \label{lema:5}
-    Naj bo $G$ povezan graf reda vsaj $2$ in $H$ graf reda vsaj $2$, ki vsebuje $k$ komponent.
-    Naj bodo $a, b \in V(G)$. Označimo $W(a) = \cup_{a \in V(G)} W(a),$ kjer je $W(a)$ rešljiva množica za graf 
+    Naj bodo $a, b \in V(G)$. Označimo $W = \cup_{a \in V(G)} W(a),$ kjer je $W(a)$ metrična baza za graf 
     $H(a)$. Potem za $x, y \in V(H)$ velja:
-    $$r_W(a, x) = r_W(a, y) \Leftrightarrow r_{W(a)}(a,x) = \2, \; r_{W(b)}(b,y) = \2$$ in je vsaka najkrajša pot med
-    $a$ in $b$ ekcentrična ??? pot dolžine $2$.
+    $$r_W(a, x) = r_W(b, y) \Leftrightarrow r_{W(a)}(a,x) = \2, \; r_{W(b)}(b,y) = \2$$ in je vsaka najkrajša pot med
+    $a$ in $b$ v $G$ ekcentrična pot dolžine $2$.
 \end{lema}
 
 \begin{dokaz}
-    TODO
+TODO    
 \end{dokaz}
 
+
 \begin{trditev} \label{trditev:zgornja_meja_mdim_leksp}
-    Naj bo $G$ povezan graf reda $n \geq 2$ in $H$ graf reda vsaj $2$, ki vsebuje $k$ komponent.
+    Velja
     $$\beta(G[H]) \leq 
     n \cdot \Bigl ( \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1  \Bigr ) + (n-2). $$
-\end{trditev}ž
+\end{trditev}
 
 \begin{dokaz}
-    TODO
+    Naj bo $a \in V(G)$, $W(a)$ metrična baza za $H(a)$ in definirajmo $W = \cup_{a \in V(G)} W(a).$
+    Ločimo dva primera.
+    \begin{enumerate}
+        \item Denimo, da za vse $x, y \in V(H)$ in $b \in V(G)$ velja $r_W(a, x) \neq r_W(b, y).$ To 
+        pomeni, da je $W$ rešljiva za $G[H]$. 
+        Torej je ob upoštevanju \ref{lema:4}
+        $$\beta(G[H]) \leq |W| = \sum_{a \in V(G)} |W(a)| = n \cdot |W(a)| \leq n \cdot \Bigl ( \sum_{p=1}^{k} \beta(H_p + K_1) \Bigr ) + k - 1.$$
+        \item Naj obstajajo 
+    \end{enumerate}
 \end{dokaz}
 
 \begin{izrek} \label{izrek:omejitve_mdim_komp}
